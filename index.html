@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 8 · Synthesizing Three Sources — Current Issues BP/AAP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA1QAAACkCAYAAACQG2/ZAAAxBUlEQVR42u2df2hV9/3/n7fED8lIBhkkJRlmECEOHVqIoEM/NAMHWnTowEIttWihwlpmWQcdrKWOdtBCW1aZhQpt+VhmQaGWj/K1UKFKlVZYoJEqUzCwyCdhCRhYZAlLIN8/3q+znHu899zz4/1+n/f7nOcDLtdr7j0/Xuf96/XzXevd9DRIJlYDWAvgUQA7AQxH/n4DwASAxygqQgghhBBCyslDFEFmVsn7AoBpeYW5KS9CCCGEEEJISanRQ9WQbgD3TMmc4iWEEEIIIaQc0EPVXKEihBBCCCGEkFjaKAL8GyvhezZYlnd6qgghhBBCCPEceqjsKlOEEEIIIYSQElFFD9UyHzshhBBCCCFEB/RQEUIIIYQQQggVqqYsR16ucBDAU2yChBBCCCGEUKEi6VkLoINiIIQQQgghxF/KmEPlS47UMIBFNkFCCCGEEEKoUBEqVIQQQgghhFCh8pAPAOyFuc14jwK4BmAWQB+As5qOewTAOJsgIYQQQggh/lKGHKoRAKcMHn8GQLv8+7rG4/YDGGQTJIQQQgghxF989lCFc6We03jcWsK/583VOgNgmk2QEEIIIYQQKlQkPQz3I4QQQgghxHN8Cvl7C8CfoX8/qVMA3oXyPNXYJAghhBBCCCFJ8clDNQdgwsBxZwCMsSkQQgghhBBCyqhQmdpXit4oQgghhBBCSC4eoggIIYQQQgghpHwKle5cqVsALoC5UoQQQgghhJAKKFS6uQ9ggI+cEEIIIYQQogsXc6h050z1AxgGcN6R+5sGsORhW4k+F3r5CCGEEEJI5amCh2oQwEWHrmdKlDxCCCGEEEKI57jgoRoEcBDAy5qPWwOwDsBNx2T+iGdtZAeAvgb/vxySMyGEEEIIIZXEBQ9VD4CPDRx3K4BxPuLcPCFKLyGEEEIIISRCkR6q0wA6AezUfFzTHpO/orHHpqwcaPF3eqqS97VuqI2ks/x2iSIs/TjcBWCW4iAlYo+Mex8aOv5aALcp5pbjS4/8eyrlb7s5JmXiL1CG6C2Gjj8GYB7ATy3fVydUgTff+4OR9VTRHqqNHj6MTi5uSQra5X0ppEy1pzzGkgwCOyjO0rFBnu9SaOHSR7E8wDqKwEuWAKyyML6SxvTJM5gKKVNDCX63Wuac2YhyRZJxG+YjpO4WcF++K1OrNa7fH5iTar2bnrZ9Q6/JQ3lD83FteUiWPbnOou6Tniq97SXKSZnkXnD0fj+VAWufZ8/pLIAbAF7xvH3YYA7A9ymnWI5IP3ivIuPcqwDWO9TvOQ8pBege5WqUb+GmY2C3KHR5awgsl6h/boDy7OnkbQATAI4BxXio+gHsYj8kJBMLSGZhLIp2+OlhmQQtsEmVqTmKoSXrsRJmVQVmANxy6HqG2AQZqmeBPgCLDl5Xl6wVyIpx4bqB414Kj/M2PVRbpYPfMKDproY992dWjf0beag/drzhLWt8LlXmT9Lejxo6vqvy/VoG8pGSPMeaJ/2taAag8gXOUE6VGBe/EMV6L+Ve6nmc8izXOFRz5H5tt58g90v3/RyGMiIX4qHqNySoux405A7QAl4l+sHqiGWhjSJoyXaOb5ViDH7lL7WxHxNCyrJQuKL5eC9ChVX4kiT3iOPXp1tzfw0qf2Cqon1rH0gZiPYL5hA0Jqji9j7llKg91cXee9wffGGR/ZhUqL23up/9UFUCP+Mj1ocND1WnoeMOAPicj9BZOgAcpxgIIeQBLkHlOfhCDx8ZIaXhGoBtFINebHio5gwd8wXLsrqDcpZobWaBqcn9LrT4XjNeZPey8txoaaXcXZbTNqhqU1MUSR3n5P11x9vTt7JOWM9+7AV/gzJmmubP0q/fKZn8dkEVNHm75OPPHXn/LYdifTzk6XUXYdmrYj4Mq8QQQvIwB+6f5jNtyF962WX2oFyG0lWws9HxVZRzP85u+L/XEilwsDRFmerXB/SX6NkvxyirjQaU/VClpS9lPE9VLPrLIFV6zvRUxRPs+3EdwCjF4U17Co9j60ss97PyfgXAHwBc9Px+BmHH+HtK3o+VrP8RkpmHKAISYQFqA7RGLFE8hJAMTAN4lmIgjnIxZt4jhJCWmPBQvQYzG8rREpyPrVAW4vkmf98EYLMoTY02QPsk5/lp0TfD/0g/fpKiKAS262RMyPsJiiKWv0JtFvrDgttz1Tgq7zuhCmn9lE2xUuN31eB8ZQATHqoRMPcmzCzc2En7KuJDAXq42PGSbqiKl4QQ/xkEC3gUSY+n8u/joyOkWEx4qLZBbzlG3zXpQwUrmG9BeZ6aPZNzUF6pz1M+j6yWnSEA61C+/Q/eL+i8uzmMOcEyVI7hDymKlnIqw7huim4AwwU+l6qzUV6/F+XqBU+ue5L9me2dlE+hIvWcR7G5R92ID8G8ipXEcRuMwP/E30asE1mT6kLPPCHlYAAq5+8FioIQYluhKqvG/6ucC+WilKlWz+MogL0A3sx4/A6ocshnU/4u8OSUzULNTfLIIEWQitUA7lIMseN3zdJ5SD1BAZUh2ClDTtxYF5UdRgYYxOUqf3OOXMeIvMrGFFQp9KwMoHxhez5DbzPxrb3So0tcZ7u8CCHE20XY9x25jn2ePdNWFpjHoSpuXct5ntuarpMWEz0sllyeF6BCRY+h3uvbBrV3Wh9U7sN2qByUjQVd59cAZgD8omB5NWoH7aLEdEBVhwSK86y60l5/AFX5dAEqZ6YN9TlMJ+Xv/SXrTy9BeQhJPMcdH1fvwUxV5bT8RsaVP3q6LiIkN7o8VKww4xd8XtUwSpSJM/IeDaFdCi2Iu6FCdDYWeJ33HZZhh8ioTxZhE2xWmA21qXYoz/15UdLnRPEr44bEPWAoWxnolGdZNKvAfSpJxan1bnraNc1/QCY1Vzpn3vszbdl6VhZGFwq+jmVH5eN6+9Depws+/9ei3Iw4dl/3YDfErFZQ+zkDlcu1KePvnxDF4sOSyylvu1r2vD8XPW7dgKos+yGAmzHfOyjfm4QbuDZfcf6J528A1jq+hpiAKgw2AWWQW5T5cwIqLeOWhntwbZyz3U46Rba67+ewzJfHADdzqO6Clo60tCf4zmaKiVSYSYogEW1goQiX2AC1KXsZSbKH3m0w145kx4dCQW2y5p2VeequGBmCUM61fIz+TJ5ZGQJDx4okqaZd8+Q+mEulhw9kEvkZRVHHT0JjXheUx4o8yMeR/sjcg/hx1bR8DkGFal61PG+Ykldarsb8vh0q3Ncmb8hC982C298GcJuGJKwq+PxB/30v4++fd7Q/kwbk8VAtgWWCyQrjFIETbAfzulqNW7MUA/GEX2GlhDeppwiFYjVUuGLRzKC1d48UzzCfU3XIs/C6o/layuah2K95YbsVKvxh2lF5rpH3qlhM/gI3CxAMcAAnGumQd1OegKegKui96al8THuqdFnY26D2DbQplyCUyYb8v5LzbbEwr+93YL3iagizKxEnRa1DNgK4XsD4E/AEVHrHkZKuq0urUJF41mmeTAagQpWIG3Qj3z5epHjm2KdaYtoL0A83qpSVne2wG1HSB1VcyuZ4zHZEiqbo+WQOrEHgnUJFRaw1r2g6TlpLi68WiQ+gYuKfTHnfRd3vTjZxr2GOkBs8K4vh31IURrlguV/ZJsiRDPaB2234fH+C8t4eZtNyiqcsK/KAihp62JH7Py8vjqcFkDWHSvfO4XOOKpu0eNljELSs6ISVsYgv7bSTYiCaGMZKmKpJ9oJFuVxkCfY3rO6l2EmgNKRFt0XXVY/K6ygmTvkLqI0kX0r4/X64Veo4q+V/RN6fbtIullu0R5vtyAdF+57j/avsrAbLj1Pxrw5HYN8z0Ij/MrROiVJUrqoP+yoBwKdQxTtesXzeU5bOMwq1P9ST7Pok4CGKoCkboBIMbTMp507Kei7crBshZigG0oIuMDSaVIcOsNKrDdbCjz31xmA+7LJIznHdRRotDotiEcXvERDHdtgtr1yVXKmsjIgi06xkbbATto12S0gShYpUh1GoHND1jl2XrRxB16o02sqRbIf98u39HvSHo5bPt9nymPsHDnnEJYVqleOyWQXGxrqm4MYpTMy/Ii4xzzZZKbrBnJoqsgA75eFJPLPg/oKkYNKE/L2F5Hk9SaihuvkdbVCWs/ArCXMeye0wslmpPgXwjwb//yKAV2N+dwpqLxJfqcFMbPzfAJzmUGcdhj9Vi0HYKYbg4rjl8nw0CrNRBcuwF7VgIt/wMFYqQE563A5vyavq7Z0UvLBPyg6KSxtZrFkX4VfVwUGZzNKyC429l60WKyMwt/moLW4bOOYM0uXkET3cpwgSK57zFAMxxDCU58L34idbYSa0cAPURrSD8KPYBSGlUKjWU1yZeA1qz6LhjL/31Rryu4y/yxoKehZmwy6+NXRc0893G7sgcZgxuLltBikHZdlv7oqh4z4fma91y6mIKrwmWAPmT5MWsMqfeZbA8B8bbIXZHAZTx24Dq8GR6jLB8bGlwjlBMRBSKNNwP++fFEwRC7laRRaQWS09m6AKMLzJ5plKjj+G2bCOXpgpUrLUYODugP6KRd1QoVULbFK5+qcPCorO8fVTw+P1C2yKsTyS8XdfwqzHfgTZQroJ0UmnJUXnPhjG7TNWlOGiFBtWxGnOPnCzy6yUocrPDIAhyoZkZDP0hmcvoZgNTH2hB27uSzcCsyFKl/noiQPs5nqSJFz/DJk+CUONimcawE0APyvp/d0SBTGtd8cVD0KbZQX3J4buvyyx7DrkUGbl8jb0eCG7AayDMvCQ+PHbVRiitEIQOunbZrOm5sEaGhe5ek7Gx1Oaz/cWVNj8k5qPe8qw4WAjWKzDp3ZdKMyhKp4OmKnu5tL9+b6ANWEBm5ZJntinvcT3thd6LHGdUN4uQsrAOMyWtR+SPuMTjTyrZw2dawDmws1NGg6GwaI5JCFJPFQ9YLiQCariKfiRvJuySNyA2R3STVm/HmYXsMKwKFBXIkq+KW5BeZyLYhLApRxKFBcP8dwDQ7J95JeG56Edsk762HM5TQH4BPo9VIGn+xnP5PERuw7RqVDtgpsx4oQAyvLIGGoSpyTYVHCuw2y1yVasR/aqcEy61jNnkuqxHcoD8zFFQQgnh2a8DD0eKtc8Mo9CeTbOWTofd9c2wy9Kel9rpI1+qPm430FZ2H/omTx8ibl+3IFr2OmBvAbgxt6GrsqJ84WfCpUuhgwq79N8XIToJ0kOVTeA1SW89wUwvIW4SyfMhBYNUbTEAYbByAdSHjo0j9cbDV7rXT4uQvSTxAKia5AILIHHoSyT70FZSsZTdvBhWRTeCClGS1BhNrsBHISZ/YLSQgujWX4O4KLB438HMxb0/WhcXSnKdXm9rfn8qwD0s/mQgvmMImjIPMzm+BE/OF3wuqQWWbfpgtVmSaUVKp3MQsXpd2El2T9thZbgdx1y/b3y3gNl1b/viEJFzHLR8PFNJZ63g0VeCCGNoTJFCCFUqBItUl+Sf58tqUwPQ3+FHGIfU14cV6oGbYYq277AR60FWlwpp6rIZ56PiRBC6uE+VPq5AFbLIu5zAwz9I4SkV6bGKQZCCKFCZRqW8DZLDWatuINwa+NXU/c7B+AOm1Nu1oNelyRcpAgKHdd0zm/0aptjGWYqTz6HbBVIT8FMJeSv5EUIFSrSlCmKwGt6wL1mSHLYVpLRB2CUYvCediQrqkOyY6L68EzG4/bDTM7vTT5mwsUAIcVgy3r7jefXT+ywTcbP6xRFSxYB/IRiKMW4sApqDzFiji4DxzyT8Xc/k/cDmq/nWT5mQoWKEEJIB5TXhSRbhBNCCCFUqErEHJT7ez0ax4Ivs1loJa88f8CFKwDgXahw0jc0H/ceVPVNetCSQTkl46SMs7+lKOq4AFXU4XmKgoTYB1ZPJMRrqphD1QVVeICJtf4o/fSkKqVng6HjkuTsoQgScRHAJMXwAEsws2E4KZZJ5Kt+WOW8NM7vhA3ZMc6IorRf7otJj8WyDD3JrG2wEzL0L0P94Yamtvi0vO9n0yoEeqYopyxcknHlvymK0hsQ8hhpjzveH9cAWC3tWfc6geMGoULlGLNQyc8Ad5t3BR3ejy7YKWNuss1MsCkQUkkmQSNIVRSq2RLf3zjc2k6EkEoqVLQ8VAvdOWjtMFP1yBbr5fWi49e5GcA1Nl+OWxnktA6MCGjGk/IixfIlzIY3fw6VM1j2+bhq/AnKIPoOReEli7BYFIn7UBHX6QBjrMODgykGAGyliEkGqEwR1xmGWQ/LjEeyKFPxi1GY3d/uNrhNgM9YrTDLhSrRhSlLWDvMhuP5VEHQ5OBwWt6r4plZhApj+TG7biI2ibxmKYpM42IR/WqCi8H/0AVgbYXmzThcTIn4Sp7RIyl/95y8m9o/Mshte4FdSCtFjIfdUFWNjUEPFfFBiTCp+A+BOXdVZMbRBZarTIMVIX3iLFRej8nFCSE621OW0P4xqMJPhMQxCAvGQHqo9DMsHbwqZdlNW9hGAXQaPP4lNlkvYE5TMoJqp5soilTtyvQ49jWATwAcs3Rfv5T3Q4aOf4/9kmgk61YCttZZv4La8uAEH5WXTNs4CRUq/XRCWVumKAotzIIbHhJC/GYtgI0UAyFeMsT1MmkFQ/700wtlIS47y7AX/81NmO3xd7AyFKkeu7GSj2GCbihvUSeqvYlrmeepNBwEsJ2Pp2E/cVFxOWJ4fCBUqEgD+pDdfU1I0TCJnVSRz2Fn24ABKGs3KQ9ZcjPug1VVm62fligG4iN0YeqnH+XeAK8s3ot/QlUtI4SQJZgtvxwQJNCXJfdouWT3k5as932aXU5r/+iCKmB1j+2duKxQ3ZLG2k9xJaKPsvKCLjCngRBSzwSyVxwjhBRDP/ssKZokIX9n5EWS0YPy5VANwd1YdGKGzQDWUQykYvwIwPctnMfWeNoBO5tb/lrGDFfgfFUtbsOOh5ntizQliYfqMphEm3YCK9MeHYMyWJFq0Q5gkmIgxGsWYCe0fwJMISCEUKGKJdgc8BTFlYiRktxHXuvLTqjNU0c1HU8nu9hMW3JJ3hkrTqqIrf2pbORk2EjyPyvvvfI+4+m8lZSXAcw5fH2+808oQ+6mDP12B4ALltsb50nCKn+kKYs5f79RwzFM8ATocSOEEBNUJS91LKNCRZLLdzjjby9SfKQI6KInUfJa0BpZalY7dH/0tBJC0o5nvnuq3hUF4GXD9/GFvH8DFf7+iCfzVlrOs2sYZVuO3xZRdj1of0egimP80ZH121rQgGwNeqiIDbgxLyGEFMd5ANctnq8DquItIVViO9zKoW9DuXL6qVARp/kOKl45b9WaGhpbV5cBTGc43hhW9qQgxbEM4F8UA6k4p2RMMs0HAL41cNyLsFutdyNUPlUwr+wCsEfj8b8G8BXsV1t7HSt5YmkYggo3J+kVAp3rEdPsBvBiqF0uy/pKNwehNoZejryi3ID5vbkIFSoiTDl6XdwLxh06KAJScT4DcM3CeXZhpSBMmbgJveXbu1GM5f0qsnneDkF5L0g6BkQZ9RkT65gZMIfPOWq9m55O+t0vAHQC2JLBUuATuqxdtZLfZ83weWpQ5fpnHHuulR0rEn7va6gQz5GCzu8butvlGaitDjZRTkbala1xZBXM5oK4Nh7OARiH2qphBsABqKJGqxy7zlpJ5F3W+SfKW1BeriOUn9fjbl46Adw3cD+HobaYOQak81BNA5hlvyYhHjV8fLY3QkgVqZo3YwLAPJQ3PNj3krm3JC/zsLvhL6kw4fjUXbKAvSKfj0hDvCqfn8yosb4KZX16h+IuFBOet8uGr3nJA7nWSvqcozwFlUNynV2JVBhbVf8uWBhfxuBOmfP1Df6vy8HnzvmnmPknK6/I+0mu/5xux6VTqEYjg+tNTQvaIdDSRIjvdMG98BtCSDamUZ09owghxJpC9SgeTITVtTnafnl/xiO5zML/UpOnoaeEZ1aLxt/hxv4HO6BiXKvCcahCI68bOG6e9kBImfB9f6qHLV2/7+Q1JFG+bvSDGp8HIOtBplIY4iFRqi5TFP/hG5Qj5nYexW7c3A3zOVZJJ8SBCrXfAbCaFCGE6OA+F6CkRAxTBOZog6qkQ1YIdkD3bVH6BlQe3Pqcx+mAnhDNrPHvJzRPYKcNyfuco4PTL+SdllFCzPM2gPcA3DF8HlOeKlruG/MigLUOX5+rkQJroCo1zjsut6q29y8cbz/eK1Skns+hSizqoA/29nl6VNPzLLoQhC+x/W1g9SBCqs45AOsohtKxAFUSmaRjEvSCECpUD7Ac6iDnQ4NL2TX8UejJn3oUKvzqY0PX+VdNA1cNKzX6XeAVT9rJYxUdM1gtiJAVLpek/9FTpTgDlU/+Xs7j/AVqX60qKqJXDR6/D8roO8P2TlwjyT5UE6hWUj+gJ+RsEGZ3+J6AyvfSgW5lijk8hBBCfGNc03pnAW6VfS8TQxQBZegibVDV/KaxUo0vyhZ5HaC4UnFElKq8HpdHAdyFvhh9054FVyw+Vbc8bZLFwT3L512AH/uHEaIT2xbvP8kcQ0+VHnbL+3lNxztk6DrPANhQ4X42qXkdExznHvyv7JyGW5bWg5XiIaiiFPspCu1shB4L1ShWdo4nJCmLBbWbJaiNvAkh5hiEvq1NiCrmdN6D65yF28UyfGWCIiB5acNKLoiv+2mUDV3PYRTKCvGkxWvPY+E5AX3FQExyBGZjxHVx3fDx90BVhPwk8v+dAFazG5OKYsvDszvUD89Dv1e4Kp4q39Yjh+FHsQzf2s8jofmrF+ardpIS8hBFUFqK8E7M5vztbQ/kegn0GEIWcIMN/n8BrH5IiC2uUgSEaOM+qllMhGggXOWPVU/s8BKUFeRlzcfdBlWivajBIG+7+Z2m63gWZj0k12He++MD5+T9j5H/70a1YtEJacR6KCPRpOHzTEfmb90Ex90g415Z1gem5MX1k931hul2/x3y7+1ZpfZfaeihss+cIaXnGmhZCbhMERTGPOihIuQm7O1BaIPrUCWrCXGBW5bOwwJLJDFtMZrrdqjE9ksUUy50W6x2y4LVlcm6B2q/LVd4n02uYX+2ZTldBZZkJSTgHFbynWzMMyYtz1Oh478GYAQqMsKncdBXDiH/3ktF8I0oJbrbia3CHI9EPvtaDZAeKQvEeagmQEuzi8yhce5KUSyxnZAQ82CVP0LC8+hsCe9rGLTe26QbQL+H191RsnayyKZImtEW87fbEc12GMCYhgblU7W/Cdj3vjwOFXfvS7Jx3n2OfLGc0MKTrD8vgTlURdIpSi1xg+fltVxQfzTFY5HP6+T9RsHynhTFw/Z4/YXhe3/H0/b/SKRdmmA77G0h8HDk80Eoz+0Frlcqy39y7NLkUC0C2FwxQRURytbDBamTDFIEiRc0CxRDYayl/ElBi4phB66jH/bya8JckIU9sctBFBshcx/uhbgzl77xc9pl4Lh7EEqLqvVuejrvAZ+CCvE5W5AG/XsAW2UgnQPwnizqtsOtGO/npKF/XpIG+rfQAi4PtKQQQki5uQNVkXCLpuM9DuWJPU/REof5AsoZsVPT8Sagosd+TtG6R5uGYyyh2NjeWSiL7JK8z0Ilb3Zruj9dXEG5YolXgV4bQgghyeZpnUUVNsgcRIWKuN7udeYUz8gxe+S4jEZwCB0eqihJY2XPAfgQwGcF3XsfVMJku3xegLKg3c94Py1lXbK2s0x5EEIIIYSQqlOkB+cT2Ct92YgeKAtXIIMlsGoRIYQQQgghpGCFKum+N6fk/c2C7v06H38m8nqmDlGEhBBCCCGkLDxEERDLjAPopRgIIYQQQggVqnhqUCF1rdgFN8qtkniWAfxbw3EuozivJCGEEEIIIVEGQ+vdRq9vAfyrCIWqDclykrrAjSh9YAIPFuwghBBCCCHEd9oArI75+0bEVFY0WZQiUKam5QKabZIb5FK5WvVtL1SZyks5j/MS1E7qvpV5HYTa0DnvJses6kcIIYQQQlxiGWq/sP8C0Jlgvfp70Qv6oJxCLwB2cqg+h979J2yjq3jFSfi5g/UQVEVGQgghhBBCysQoVIpSoCC1oguqUvgS1EbLAMzsQxWnAcZxVC7weYc1WB345qnJe9/boDagY1VFQvKzWgbxSfl8HMrgcZWisU43gHvy750yKc9QLKVg2fN5mxDSmu9kzP6tjN9RNst8295kjv2nKFc1wL0qf1v4fEvHQFiDJ4Tk4m5k0d4NFvUpgh6okI+AMXBLCEII8YmLIYXpiQZ/vyGK1liT398I/bvNpocqoJXHw1VLUNU8VL7fLy2MpIwsez6ulIWtAKYA3JHPx6FCRg4bOt9bUOHXu1P+bgQqh/kaHxnnjxJzEEA/gNdT/u5xqKJo5ynCSvfzWk49ZRkwW5SCEEIIKSNXobb8COhFcyumDmaRLQf3MpT1lZAycxvZImG+QbLtfQhpSREKVa2FBthMYyyaF2VCO5vzODugLI3HHNfYdT1nkk7ub0o7O0GRlPo5dyCm/GqCfnVPFsrfo0gLYSii4EwjWTKz7vF4TtrBqoS/ryU838tQeXof8VGTmHayCsm2x3F1vTLBdUtDvoIKLd8rY9vDFZVD0B7+JXN2LA+x3SRmKYlAEyqxn1OcpAnd4L5sVWBBwzHGKcbK0wUzFvY5rGxySUjcuoiRTuVjDsrjPg7lfa8ynVDez5bzbRE5VEktDMyl4n3pvB/XLU+M2S83w1DJrcFzviKT1mMUjZcMyUIySEo+DrXx+e8MjQfzooT/IOVx/geqUtWPRUEaT3neqo5DlEPzdj+BFaNfUeNY9PnMQhkj0z6ne/I78HlXsv2nzaGqxR3HdQ8VLWSEkDIwgfod2G9zfCMpGIfaeDJLu7spShU9miQvbaj3rl8s4PyN6EZ91c2kZP0dIYkbp01+DmXlmE+oOZaFHXAj9I85U4SYZyCyoJ2D8mgQkoSfZPzdKxQd0cgc6rdpGIaeVIikRI0Ka+WaprhuIQaI1nx4CyoU8uNGX3bBQ3UFxSY1pmVS03FGwf1jCKkKo6i3hHaDHgNCiF/cRf0GqJthtrplK27DTDEYQhrxCYDtzf7ogkK1IArV6wBONfj7MvR5UXTwQ+ixakwD+GsB1/8agJc0yrWGclh5/l9IJlG5dEb+FvfqTHi+5ZjzIeb4TwHoS3FfSa97T8rjQgwCwe8Poj4Wvdl5ovRBlZ8O/v7rjNf/PpTXNyv/SHGuJP3mLQCvxvzuAIB9GY/fHvreaTlXWpLe52+kbeQ5/r9D/39HPuuSc977C15VDb/MOg4NQ+XTRHkKwAeh7+3SeH0fGG7n6zTK9Vtp60nO/U+Nz21YxlBd/esNWac0+10vgCMG+m+rdeCHAC6FlCpX+o+u+fVejBy7U5y3x/A4sCxrpzTy+leC635V2l4awvPpBqi9Altd/yxWouPC/f8beUXXuV9CVT4MH/d/AWwCUHMph+q6vIhZ+jVMcmVkJx4soRqQJjTLdBjXVahyprr5DI2Tc5uxHfWWyo9SKJPR9hjeVPEsgGczHGccylqalbTPrZWsJmAuNj88SWYpr5/mOV9DfgtwtApdErksWu7/4+B+TWkYRePIkoHIZ50bph4yeD8XG1x7XvncSvhdnVVdn4DKmdPJcw62P98MIGnn124oo3sj0swrM0hvKE3DhKyd0pAkRHQ36nOOW9EO4EzkvpOc54z0/WEAG0P/v9RkfOtqIP/dwVrIhSp/UX4tjelo5P9PQll1Xa0il5car9fo/dZSfv+UdMojGc+/RRb4xxKcbxoPliadhvLeDsjEvFYGrx+1OO8H8r2jTf5+QY41mPP59okyFPayjkUGpegC+RqA/478f6fc443Qfc/KNZpsn+0i31b9Yh4qPr+ZvNaKgnO1yd//IQNzf5O/j0FZ+jvk3rvl+832lxqSv9+Rz2+KDJ/P2f/HpZ3t1NTvk443txI+67znnQtNhnMxi+fd8rxHW5zHdpU/U+Ptv6U9zUif6G2weGsPLU5GpS80qzb4vyKXnaEFSD+yexHSyuENeSYnYxajcxmUJx3tfkJkGTe+6e5fuu4vyfmmpZ3MS18Y1NhuXak6Z2t+jd7vhy3OGx7jGrFf+vmZJn//VvrosMxB3THzeLCF0JyMA0s52us5OWe/tJuOjPIahkrHmQz18xsAtjX5/hX5WzRH6jCUZ6uVYvRPud4zUAbDw4CbVf7mZOEV5QBUWCAhNrgN5ULOSk+LQTXo/ONonEvTG5r0Z2SyShqrfi3mb7PI5kmKsjmy6JyIUaaC8za6rsHIINobo3wE55nTcP0LiLcY3pBrDhaacYplXC7kTIv7mZO2NgeVnzCF5p5Skwy2eH6mWGvpPF0hBblVHmwfqsOs9L8BNPbS3oDyeEyHFMm4frMEPXusZaUzgfI2UNC1tcu1feZhO/mmxbg7GVJWO0JGmjJiY35tNI+0isCIiyRY12JeCZT9wSb9e1zWH3elj4/K2NCFfMXtumV8GdU8bpyNUaaCMaCR0WVfi+cbXaN1IRRN4aKHqpVm2ysP4baj15cXXZaX96UDbnT0+mw/l6wWuBNQrufHDJ037++iE/a8pvMfkH52LOY3v4KyzOdpJ32hCTnPcfLKvWa4fQVKdrAwPS6DcdoBOK2H6h6U1+T9jPL5qsnElLU/ZX2e01CWwB848jxNe6j+LIr6lsj/vyuLm2OOjJtRTssYdCC0yLPpocp6/b+BCv0Zy9huG42fwULR5nxVk3bZymvwqbzvzSCvbhlXgnH7YoZxzHa71KUQ25pf/95E8Z+VNvVzD9YjeY6zAcCIjHdJfh/1UGWddw5CRSnszbIOdn0fqu4mGmQPSCtWoxiLc9lYRPaSrLbRaeHpQXzOwmasJAXnPY+p/tzm8LPqt3Sew1B5FVnZhuax/DbpRX2ScNnZiAfD74IFletVzZY8lPdHTeSdZyyedlj+E8juiQ2P11WqVGpzfm3mRb2CauybtTaFMUInHUiWo74VDSJX2hwX6iwejHE8XqCFohGjMqjs03S84D7XYCV/I44dsrCdN3R/Z6XhPIZq8ryGY9jYcyyvRSnaz95OMCG3xRwnzeS/pOE4m6QvLkfuo5bwvk0ziHrr2YClifG05naRFR3n3WngPK4S5BrekYVvEEZ1VN6j4e83AKx35P6LUPjyjn+zUJ6WW1DetN0Jf9eJxqGSZzIo0NdD9/GlXNMvE/7+OB70ZsbxQsZ+3YN6Q/e44ef9e9R7N8+hGAOn7fm1Gb/IeR+7oELaZgzL61vUh4iuQbpCImc0XUfa5/SevB/OcjLXPVQ+cAJm9mHYIBNkK+YSfi8rG5GuOg2pZzPKmZPRD+WSz8uEJmPAqOPyGo8ojhNww/ND3OawLPRbsd6R622D39USV6VQpgB9VV2vy5wfcDHlovcz2NkPai4y1vYYVqjmIvNDN+rLYZN03IQ+438c86gPFR9E9m0JvPHI+aRQRfc7cmV/qhMA/mjguGcBfIHW9fqvwMx+VoG81wD4aQUHnl48WO45CYci7fQtAC97dN+HEF9JKGARTXYLz6CYDXjYPi6hPgRtsIXi3IP64hXthhci3ZHzLeZUOvsj7foOgO9K1N8vYiUfyrXr+kVoPD4MVbGrGdH54UuovaFs0uFxO1iDdFbt6Dokz76M4W1jXke67SMuAnjGgnzWR8bruzBrGJpFfSTEEvwOeUs6vyKiSK5CtgI+NdTnW/0V8UWUdLGlQfs8lvH6w3mz/4Zb+9J6q1ARYpNZZN+vaziyEF306L6jSmR7jMKpw/M2B39y1BCjEM0jPndhJvL3JZjNNWmPtLv7yOdpnkK9BX3QU0W4GYPwxxM/meK7M0jncSEkjmnUV4sbRDbDY5p5ODrO3vZYfknn16hhYhjZqr8+FVF4T0JPZEmR8nNWoW7zUKC1kKYNZK/qZOq6luE3ZclByMsSspW3/ajBQq0IdLXDAzKYR2OKxyML0GDfrrT0oD5s5kMUk9T+f3LerErCVAsFcxD1ITlLMOuhOh2ZkLdoWIhEN153uTjCF6JQ7sz4+x5Z7Nx17L5OtBino/1+n+V5Mlpau9X2BGXDt/k/8MomDRmNjlumyoQHnA8pAgj152dK8pybza9RrmU8fjSK5EgJ+kWS8eRUETfps4dqECpBkRBijk4kCxUz7XExzQTyhXx1OqZgzMIvz6iJdruzgvc9AVVYoSiWUK4QLUJcmF9JOhaKWI+0eSywIK7yDxENmJ6qbNdLSCPegd0k8yXLioCufrrg4LMLe6hmKtJekz7PcRTnPTbJjwy176wKle22Nw+/c7gI51fSnDcTymseZkNRS6dQEULskERZ0OWhWoSfnq4+x657GPWhEfQS1E+2g5E2t4pi0UZYlqst9wsqU6SM8ytZGU+ScL8IRbVMRSmC6jqr4UZZzTzVfkzSH7o2eqfKS03TKym6Fk22Qgej1bk6UsrlVoNJcd6h5/9D1Ie8fQXg0xK390bV1rqaPLvvRT7/F1TM/VwJ5fI6VvJPAOAlmK36N4/6JPhtyL7B/LCH8q5pfpHGHCy4ffD5FiOvJ+XVikIMs2Ws8ncXwFWON7ELVnomSV7aGgxgWUP1FgtQqNBAIdqQ4vvHALwb+jzr2IL896gvs9sPtSdaVoYaLJyvONw+25F+j6CJEvbTjagvtNIJs6GOtyPz76GMCtx2AI9ymCUx67xdFAOJWecWvigiZjRzAHgfwB6octO2z98GvwsGEA5gNrie4rvHI5+7HVOo/hgad6BhER31yH3P8WeZNoxmf0n75TVRqEbk8wxWKqeZYBQqP+14SDECklmVw3xRkLzeSNmPu0RxD7yj92QsoHfJzDpqOdI+/kDROMkc6os07ZE1wvky3zT3obJHN7KXvuRil/igUC1pOo4v1enC+wHNgPkbvlPGqoi7UO9dHIOe/eOacQN+F0DpQzrPx/0G8zwhVacLyrASnh9tVjNsQwEOI3qo7PF45PNfoPaG0RV+cREqZOUZirqSRC14WateJv1dN+r3NZrJuFC7iQdzLHwpoNAfGUvjLNvjkc97c4zZSxElIG7vrGmoPbI2ZmwXp1GdKlTRwhR3U7T/u5oVleA57Rf5f5TxOFsiny8bluH9nL/fnvF3a6AMHPMZ2/mg9NEDmuTwKtReZs8n/P5q1IcN2/JwdUB5n8P7UHXGPMfoJuz7Cpjn9gA4G3nOL8oY93TK4/1a5B7kGU6KTH5Q8PxatvXIlRzymgTwO6icuRdi5rno/Gs9x44equLQqUwFg+AkxUoscU0WDAFDyLYP01BkITqI7JvrFslm2NmHagn1Sf+BMhunsOaRZzfy5V75ykALRVJX+0+y4OuqkNzb0Hyj2MUWBos8choH8Jbm+0i7KfT7Bci7D6pwiE6l2DSNPB1dqN84PSlzqPfg9oNeRpcYl2eyBODzmO/1o94wew0F7O9FD1VxrKEIKkOW3JqwhXojgHWibASWxGaWnndlEHo3cpyAo7JAvgsVnvNuk+P8Biq5vFmYag+AX4U+38CDXpgk9KDe0r8Y+WyK9aJsRC2OFwGcAXCiwfOYi1m0zSKbZ+0fUHmVv5MF/FH5/7flXIcbLByGIwpWXDGFnzVpB9HPr8uktAv1Hq0orlpWm1mQT4mMAsv1DnnGi/LezCMygfg8LF3tvxVb5BXtp2flvi5AedZ6oKrbNtvM+EVkCzkP5HhCzvUhlBeov0V72CTjzPEm7W1U+stWWQhvSXAtrUrbz8gxb4SUhOh5D8sCegTKK9RrqP29LO9vhL4zKXK8DeBPAD4BcKTgfnNG3g+E2nV7BmUwuO/nZF35bmgcGwPwscZrvivybseKRzI8biIi8yAcfR71nrgs45ut+dW2QhrlOIDPsJKrFtznSbnudpHlsy3k1mxcDhiTZzQl8nobjbexONXiPNciivEOFGCYpYeKEPPKVF7L6awMFklydC4h3vM5J4uI6RYGlfstFIQZrBQ+gJzzUIb7G0C9RXAcdrY9uInGe1qMYcVS3RZaZKDFc5zCg5XwkhAs6G5F5N2Geg8IQt8LF89YSLBIaMViSCm8C39D/DqbKCQToWd5DSshk3HhZa2Mjbraf1b65Ll1yHs36qs6Rvkc+XL8rojcuhOOZ+sQ7zmdk77WFmNAuZHhOi+2UITbRZm6Jd+1xawooVNYKWTR70CfORDpBzPIlwMXNSyM4UEPmA7aE8ovCKMMXnmxNb+aJEko3PNNrv88VqJIdEQuDMi4Miv9IuszerTBOuKsbcHWejc9DUJKyHITS4mu7yc9f6BQ1TJed9O+q/l4aY+7TxYlQZjFiCxe38ywCA5XyTouC79nLD33tHI6JBNAsO/UudDEACS37LY639uyaHi+wUK1C8A38vk5UeReSHjePaJM3kqp0G+y9BzyHifIhUn6PHfLs+uSBcTrofZ8Gw/mjOhu/614ShYK72ad4zXJPevx+wA8gQc9B3HPYxBqW4I87WgrlCU96X2clIX/Gk3t92+ivCfNyQrCeB+23L++Rb1RK/D8LGhqJ+dkPP+54fn+7zIer035uwtyr7803E/yzke61iPTojD/JOHvvoSKVug2dF+tGJHzH2vxvdVyjWMhw8oFAO/YXHTSQ0WIWbpQzv1tzkYWm3uRrUrafVlwhRfEtqsBpWEQK3H2g5H/12lx7EHjELKbqLfcjyBdifDLWCmhnXTBMeRRu0wbdjcgSurJSD+9HKNM6Wz/Se7H55yOqZSLmilky4WJcjVDf7ug8b5nUvbLGagQQNuMRdpXD9JvOdAKG/vVZQ3vug07ERGu0It0EQ1zyOYp1sVCwr68gHpP6xgKyKH6/0z0hK+bymulAAAAAElFTkSuQmCC">
+<style>
+:root{
+  --navy:#16345f; --navy-2:#24497d; --gold:#d4a017; --gold-soft:#fbf3dc;
+  --ink:#1c2533; --muted:#5b6678; --line:#d8dee8; --paper:#ffffff; --bg:#f2f4f8;
+  --ok:#1f7a4d; --ok-bg:#e5f4ec; --bad:#b4372f; --bad-bg:#fbe9e7;
+  --f-head:"Montserrat","Segoe UI",Arial,sans-serif;
+  --f-body:"Libre Franklin","Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{font-size:15.5px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px 48px}
+h1,h2,h3,h4{font-family:var(--f-head);color:var(--navy);line-height:1.2;margin:0}
+p{margin:.35rem 0 .6rem}
+a{color:var(--navy-2)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* ---------- toolbar ---------- */
+.toolbar{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;border-bottom:3px solid var(--gold)}
+.toolbar .wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-top:7px;padding-bottom:7px}
+.toolbar .tb-title{font-family:var(--f-head);font-weight:700;font-size:.95rem;margin-right:auto}
+.toolbar nav{display:flex;gap:4px;flex-wrap:wrap}
+.toolbar nav a{color:#fff;text-decoration:none;font-size:.95rem;padding:4px 9px;border-radius:4px;border:1px solid rgba(255,255,255,.25)}
+.toolbar nav a:hover{background:rgba(255,255,255,.12)}
+.timer{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.08);padding:3px 6px;border-radius:6px}
+.timer input{width:3.4em;font:inherit;padding:2px 4px;border-radius:4px;border:1px solid #8ea2c2}
+.timer .t-disp{font-family:var(--f-head);font-weight:700;min-width:3.6em;text-align:center;font-variant-numeric:tabular-nums}
+.timer.done .t-disp{color:var(--gold)}
+.tb-btn{background:#fff;color:var(--navy);border:0;border-radius:5px;padding:5px 11px;font-weight:600;font-size:.95rem}
+.tb-btn.gold{background:var(--gold);color:#1b1400}
+.tb-btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}
+.save-note{font-size:.95rem;opacity:.85;min-width:6em}
+
+/* ---------- boarding-pass header ---------- */
+.pass{display:grid;grid-template-columns:1fr 290px;margin:20px 0 14px;background:var(--paper);border-radius:12px;overflow:hidden;box-shadow:0 1px 0 var(--line),0 6px 20px rgba(22,52,95,.08)}
+.pass-main{background:var(--navy);color:#fff;padding:20px 26px 18px;position:relative}
+.pass-main img{height:46px;display:block;margin-bottom:14px}
+.pass-main .route{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.pass-main h1{color:#fff;font-size:1.9rem;font-weight:800;letter-spacing:-.01em}
+.pass-main .wk{font-family:var(--f-head);color:var(--gold);font-weight:700;font-size:1.05rem}
+.pass-main .sub{color:#d6e0ee;margin:.4rem 0 .9rem;max-width:62ch}
+.legs{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;background:rgba(255,255,255,.07);border-radius:8px;padding:10px 14px}
+.legs .leg b{display:block;font-family:var(--f-head);color:#fff;font-size:1rem}
+.legs .leg span{color:#c9d5e6;font-size:.95rem}
+.legs .brk{color:var(--gold);font-family:var(--f-head);font-weight:700;text-align:center;font-size:.95rem}
+.pass-stub{padding:18px 20px;border-left:2px dashed var(--line);position:relative;display:flex;flex-direction:column;gap:9px}
+.pass-stub::before,.pass-stub::after{content:"";position:absolute;left:-11px;width:20px;height:20px;border-radius:50%;background:var(--bg)}
+.pass-stub::before{top:-10px}.pass-stub::after{bottom:-10px}
+.pass-stub label{font-size:.95rem;color:var(--muted);display:block}
+.pass-stub input,.pass-stub select{width:100%;font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:#fbfcfe}
+.pass-stub .skills{font-size:.95rem;color:var(--ink);border-top:1px solid var(--line);padding-top:8px;margin-top:2px}
+
+/* ---------- lesson & phase structure ---------- */
+.lesson-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:26px 0 10px;padding-bottom:8px;border-bottom:3px solid var(--navy)}
+.lesson-head h2{font-size:1.45rem}
+.lesson-head .lh-k{font-family:var(--f-head);font-weight:700;color:var(--gold);font-size:1rem;display:block;margin-bottom:2px}
+.lesson-head .lh-r{color:var(--muted);font-size:.95rem;max-width:46ch;text-align:right}
+.phase{display:grid;grid-template-columns:34px 1fr;gap:0 12px;margin-top:14px}
+.phase-rail{background:var(--navy);border-radius:6px;display:flex;align-items:center;justify-content:center}
+.phase-rail span{writing-mode:vertical-rl;transform:rotate(180deg);color:#fff;font-family:var(--f-head);font-weight:700;font-size:.95rem;letter-spacing:.06em;padding:10px 0}
+.phase.study .phase-rail{background:var(--navy-2)}
+.phase.activate .phase-rail{background:var(--gold)}
+.phase.activate .phase-rail span{color:#1b1400}
+.phase-body{display:flex;flex-direction:column;gap:12px;min-width:0}
+
+.task{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 18px 16px}
+.task-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.task-h h3{font-size:1.12rem}
+.task-h .num{font-family:var(--f-head);font-weight:800;color:var(--gold);font-size:1.12rem}
+.task-h .time{margin-left:auto;color:#8a93a3;font-size:.95rem}
+.task-h .mode{font-size:.95rem;color:var(--navy-2);background:#eaf0f8;border-radius:4px;padding:1px 7px}
+.instr{color:var(--muted);margin-top:0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 14px}
+
+.hybrid{display:flex;gap:10px;background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:6px;padding:8px 12px;margin-top:10px;font-size:.97rem}
+.hybrid b{font-family:var(--f-head);color:var(--navy);white-space:nowrap}
+
+/* ---------- form controls ---------- */
+textarea,input[type=text],input[type=number],select.ans{font:inherit;color:var(--ink);border:1px solid #c5cfdd;border-radius:6px;background:#fbfcfe;padding:6px 8px}
+textarea{width:100%;min-height:62px;resize:vertical;line-height:1.45;display:block}
+textarea.tall{min-height:180px}
+input[type=text].full{width:100%}
+select.ans{padding:5px 6px;max-width:100%}
+.ok{border-color:var(--ok)!important;background:var(--ok-bg)!important}
+.bad{border-color:var(--bad)!important;background:var(--bad-bg)!important}
+.btn{background:var(--navy);color:#fff;border:0;border-radius:6px;padding:6px 13px;font-weight:600;font-size:.95rem}
+.btn.alt{background:#fff;color:var(--navy);border:1px solid var(--navy)}
+.btn-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.score{font-family:var(--f-head);font-weight:700;color:var(--navy);font-size:.95rem}
+.expl{display:none;font-size:.95rem;color:var(--muted);margin-top:4px;padding-left:10px;border-left:3px solid var(--line)}
+.checked .expl{display:block}
+
+/* question rows */
+.q{padding:8px 0;border-top:1px solid #eef1f6}
+.q:first-of-type{border-top:0}
+.q-line{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.q-line .qt{flex:1 1 340px}
+.q-n{font-family:var(--f-head);font-weight:700;color:var(--navy);min-width:1.4em}
+
+/* MCQ */
+.mcq .opts{display:flex;flex-direction:column;gap:4px;margin-top:5px}
+.mcq label{display:flex;gap:8px;align-items:flex-start;padding:5px 8px;border-radius:6px;border:1px solid transparent}
+.mcq label:hover{background:#f4f7fb}
+.mcq label.ok{border-color:var(--ok)}
+.mcq label.bad{border-color:var(--bad)}
+.mcq input{margin-top:5px}
+
+/* segmented choice */
+.seg{display:inline-flex;border:1px solid #c5cfdd;border-radius:6px;overflow:hidden}
+.seg label{padding:4px 11px;font-size:.95rem;cursor:pointer;border-left:1px solid #c5cfdd;background:#fbfcfe}
+.seg label:first-child{border-left:0}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:has(input:checked){background:var(--navy);color:#fff}
+.seg.ok{border-color:var(--ok);box-shadow:0 0 0 2px var(--ok-bg)}
+.seg.bad{border-color:var(--bad);box-shadow:0 0 0 2px var(--bad-bg)}
+
+/* reading */
+.reading{background:#fbfcfe;border:1px solid var(--line);border-radius:10px;padding:16px 22px 12px}
+.reading .src{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.95rem;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+.reading .src a{font-weight:600}
+.reading h4{font-size:1.15rem;margin:6px 0 4px}
+.reading p{max-width:76ch;line-height:1.6}
+.reading .pn{font-family:var(--f-head);font-weight:700;color:var(--gold);margin-right:6px}
+.reading .note{font-size:.95rem;color:var(--muted);font-style:italic}
+.voice{background:#eaf0f8;border-radius:3px;padding:0 3px}
+
+/* vocab matching */
+.vocab-list{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px 22px}
+.vocab-item{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px;align-items:center;padding:4px 0;border-bottom:1px dashed #e3e8ef}
+.vocab-item select{width:100%;min-width:0}
+.rank-row select{width:100%}
+.vocab-item b{font-family:var(--f-head);color:var(--navy)}
+.vocab-item .ex{grid-column:1/-1;font-size:.95rem;color:var(--muted);font-style:italic}
+.bank{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px}
+.bank span{font-family:var(--f-head);font-weight:600;font-size:.95rem;background:var(--gold-soft);border:1px solid #ecd58f;color:var(--navy);padding:2px 10px;border-radius:14px}
+.bank span.rec{background:#eaf0f8;border-color:#bfd0e6}
+
+/* data table */
+table.data{width:100%;border-collapse:collapse;font-size:.97rem}
+table.data th,table.data td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+table.data th{background:#eef2f8;font-family:var(--f-head);color:var(--navy);font-size:.95rem}
+table.data input[type=number]{width:5.4em}
+table.data td:has(input[type=number]){white-space:nowrap}
+table.data input[type=text],table.data textarea{width:100%}
+table.data textarea{min-height:48px}
+.scroll-x{overflow-x:auto}
+
+/* stat guesses */
+.stat-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.stat{border:1px solid var(--line);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:6px;background:#fbfcfe}
+.stat p{margin:0;font-size:.95rem;flex:1}
+.stat .g{display:flex;align-items:center;gap:4px}
+.stat input{width:5em}
+.stat .reveal{font-family:var(--f-head);font-weight:800;color:var(--navy);font-size:1.25rem;min-height:1.6em}
+.stat .reveal small{font-family:var(--f-body);font-weight:400;font-size:.95rem;color:var(--muted)}
+
+/* strategy cards */
+.options-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;margin:6px 0 10px}
+.opt-card{border:1px solid var(--line);border-left:4px solid var(--navy-2);border-radius:6px;padding:7px 10px;font-size:.97rem;background:#fbfcfe}
+.opt-card b{font-family:var(--f-head);color:var(--navy)}
+.rank-row{display:grid;grid-template-columns:110px 220px 1fr;gap:8px;align-items:start;margin-top:6px}
+.rank-row .rk{font-family:var(--f-head);font-weight:700;color:var(--navy);padding-top:6px}
+
+/* synthesis language */
+.phrase-box{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0 10px}
+.phrase-box div{border:1px solid var(--line);border-radius:6px;padding:7px 10px;font-size:.95rem;background:#fbfcfe}
+.phrase-box b{display:block;font-family:var(--f-head);color:var(--navy);font-size:.95rem}
+
+/* tracker */
+.tracker{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.tr-cell{border:1px solid var(--line);border-radius:6px;padding:7px 10px;background:#fbfcfe;font-size:.95rem}
+.tr-cell b{display:block;font-family:var(--f-head);color:var(--navy);font-size:1.05rem}
+.tr-cell.met{border-color:var(--ok);background:var(--ok-bg)}
+.tr-list{margin-top:4px;display:flex;flex-wrap:wrap;gap:4px}
+.tr-list span{font-size:.95rem;padding:0 7px;border-radius:10px;background:#eef1f6;color:#7a8394}
+.tr-list span.on{background:var(--navy);color:#fff}
+.copy-warn{display:none;margin-top:8px;padding:8px 12px;border-radius:6px;background:var(--bad-bg);border-left:4px solid var(--bad);font-size:.95rem}
+.copy-warn.show{display:block}
+
+details.model{margin-top:8px;font-size:.97rem}
+details.model summary{cursor:pointer;color:var(--navy-2);font-weight:600}
+details.model div{padding:8px 12px;background:#f4f7fb;border-radius:6px;margin-top:6px}
+
+.breakbar{margin:30px 0 8px;display:flex;align-items:center;gap:14px;color:var(--navy);font-family:var(--f-head);font-weight:700}
+.breakbar::before,.breakbar::after{content:"";flex:1;border-top:2px dashed var(--gold)}
+.breakbar span{background:var(--gold-soft);border:1px solid #ecd58f;border-radius:20px;padding:5px 18px}
+
+.community{margin-top:16px;background:var(--navy);color:#fff;border-radius:10px;padding:14px 20px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+.community h3{color:var(--gold);font-size:1.05rem;margin-bottom:3px}
+.community p{margin:0;color:#dde5f1}
+.community a{color:#fff}
+.sources{margin-top:16px;font-size:.95rem;color:var(--muted)}
+.sources li{margin-bottom:4px}
+.print-only{display:none}
+
+@media screen and (max-width:900px){
+  .vocab-list{grid-template-columns:minmax(0,1fr)}
+  .pass{grid-template-columns:1fr}
+  .pass-stub{border-left:0;border-top:2px dashed var(--line)}
+  .pass-stub::before,.pass-stub::after{display:none}
+  .stat-cards{grid-template-columns:repeat(3,1fr)}
+  .tracker{grid-template-columns:1fr 1fr}
+  .phrase-box{grid-template-columns:1fr 1fr}
+}
+@media screen and (max-width:680px){
+  .grid2,.grid3,.vocab-list,.options-list{grid-template-columns:1fr}
+  .stat-cards{grid-template-columns:1fr 1fr}
+  .rank-row{grid-template-columns:1fr}
+  .phase{grid-template-columns:1fr}
+  .phase-rail{padding:4px}
+  .phase-rail span{writing-mode:horizontal-tb;transform:none;padding:2px 0}
+  .legs{grid-template-columns:1fr}
+  .lesson-head .lh-r{text-align:left}
+  .vocab-item{grid-template-columns:1fr}
+  .toolbar nav{display:none}
+  .community{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- print ---------- */
+@media print{
+  @page{size:A4;margin:12mm 11mm}
+  html{font-size:11pt}
+  body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,.btn-row,.no-print,details.model,.hybrid{display:none!important}
+  .wrap{max-width:none;padding:0}
+  .pass{box-shadow:none;border:1px solid var(--line);margin-top:0;break-inside:avoid}
+  .task,.reading{break-inside:auto;border-color:#cfd6e0}
+  .task-h,.q,.vocab-item,.rank-row,.stat,.opt-card,tr{break-inside:avoid}
+  .lesson-head{break-after:avoid}
+  .lesson-2{break-before:page}
+  .phase{grid-template-columns:1fr}
+  .phase-rail{border-radius:4px;justify-content:flex-start;padding:2px 10px;break-after:avoid}
+  .phase-rail span{writing-mode:horizontal-tb;transform:none;padding:0}
+  textarea{resize:none;overflow:hidden;background:#fff;border-color:#bfc8d6;field-sizing:content;height:auto!important;min-height:44px}
+  input,select{background:#fff!important}
+  .expl{display:none!important}
+  .ok,.bad{background:#fff!important;border-color:#bfc8d6!important}
+  .mcq label.ok,.mcq label.bad{border-color:transparent!important}
+  .seg label:has(input:checked){background:#16345f!important;color:#fff!important}
+  .seg.ok,.seg.bad{box-shadow:none}
+  .stat .reveal:empty{display:none}
+  a{color:var(--ink);text-decoration:none}
+  .print-only{display:block}
+  .pass{grid-template-columns:1fr 210px}
+  .pass-main h1{font-size:1.5rem}
+  .stat-cards{grid-template-columns:repeat(5,1fr)}
+  .tracker{grid-template-columns:repeat(4,1fr)}
+  .rank-row{grid-template-columns:80px 160px 1fr}
+  .vocab-list{grid-template-columns:1fr}
+  .vocab-item{grid-template-columns:120px minmax(0,1.1fr) minmax(0,1fr)}
+  .vocab-item .ex{grid-column:auto}
+  .vocab-item select{appearance:none;-webkit-appearance:none;padding-right:6px}
+  .community{background:#fff;color:var(--ink);border:1px solid var(--navy)}
+  .community p,.community a{color:var(--ink)}
+  .copy-warn{display:none!important}
+}
+
+</style>
+</head>
+<body>
+<div class="toolbar no-print">
+  <div class="wrap">
+    <span class="tb-title">Week 8 · Synthesizing Three Sources</span>
+    <nav aria-label="Jump to">
+      <a href="#lesson1">Lesson 1</a><a href="#lesson2">Lesson 2</a><a href="#write">Synthesis writing</a>
+    </nav>
+    <div class="timer" id="timer" aria-label="Activity timer">
+      <input type="number" id="t-min" min="1" max="120" value="10" aria-label="Minutes" data-nosave>
+      <span>min</span>
+      <span class="t-disp" id="t-disp" aria-live="polite">10:00</span>
+      <button class="tb-btn" id="t-start" type="button">Start</button>
+      <button class="tb-btn ghost" id="t-reset" type="button">Reset</button>
+    </div>
+    <span class="save-note" id="save-note" aria-live="polite">Autosave on</span>
+    <button class="tb-btn gold" id="btn-print" type="button">Save as PDF</button>
+    <button class="tb-btn ghost" id="btn-clear" type="button">Clear answers</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<header class="pass">
+  <div class="pass-main">
+    <img src="data:image/png;base64,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" alt="Approach International Student Center">
+    <div class="route">
+      <h1>Who's Right About the Shopper?</h1>
+      <span class="wk">Week 8</span>
+    </div>
+    <p class="sub">Current Issues — BP / AAP · Business and consumer trends. This week you read two reports on American shoppers before the 2026 holidays and combine three voices into one original response.</p>
+    <div class="legs">
+      <div class="leg"><b>Lesson 1 · 100 min</b><span>The cautious consumer: October retail sales</span></div>
+      <div class="brk">30-min break</div>
+      <div class="leg"><b>Lesson 2 · 100 min</b><span>Holiday 2026 plans + three-source synthesis</span></div>
+    </div>
+  </div>
+  <aside class="pass-stub">
+    <div><label for="s-name">Student name</label><input type="text" id="s-name" autocomplete="name"></div>
+    <div><label for="s-date">Date</label><input type="date" id="s-date"></div>
+    <div><label for="s-mode">I'm joining</label>
+      <select id="s-mode"><option value="">Choose…</option><option>In the classroom</option><option>Online</option></select></div>
+    <p class="skills">By the end of today you can combine information from three sources into one response, cite all three, and show where they agree and disagree.</p>
+  </aside>
+</header>
+
+<!-- ======================= LESSON 1 ======================= -->
+<section id="lesson1" class="lesson-1">
+  <div class="lesson-head">
+    <h2><span class="lh-k">Lesson 1 · Topic 1</span>The cautious consumer is back</h2>
+    <p class="lh-r">Source 1: an AP report on October 2026 US retail sales, with comments from an economist and a credit-reporting expert.</p>
+  </div>
+
+  <div class="phase engage">
+    <div class="phase-rail"><span>ENGAGE</span></div>
+    <div class="phase-body">
+
+      <div class="task">
+        <div class="task-h"><span class="num">1</span><h3>Your wallet this autumn</h3><span class="mode">Pairs</span><span class="time">7 min</span></div>
+        <p class="instr">Discuss with a partner, then write one short answer for each question.</p>
+        <div class="grid3">
+          <div><p>Prices for what feel noticeably higher to you this year than last year?</p><textarea></textarea></div>
+          <div><p>What have you (or people you know) cut back on? What do you still spend on?</p><textarea></textarea></div>
+          <div><p>Do you plan to wait for Black Friday / Thanksgiving weekend deals? Why or why not?</p><textarea></textarea></div>
+        </div>
+        <div class="hybrid"><b>Hybrid</b><span>Online students go to breakout rooms in pairs; in-class students pair with a neighbor. One in-class pair joins a laptop with an online student if numbers are uneven.</span></div>
+      </div>
+
+      <div class="task" data-checkset>
+        <div class="task-h"><span class="num">2</span><h3>Predict: up or down?</h3><span class="mode">Individual</span><span class="time">8 min</span></div>
+        <p class="instr">The headline says: <em>“Spending growth slowed at retail stores in October as high prices give shoppers pause.”</em> Predict whether October sales went up or down in each area. You will check after reading.</p>
+        <div class="grid2">
+          <div class="q q-line"><span class="qt">Gas stations</span><span class="seg" data-ans="up"><label><input type="radio" name="p1" value="up">Up</label><label><input type="radio" name="p1" value="down">Down</label></span></div>
+          <div class="q q-line"><span class="qt">Car and parts dealers</span><span class="seg" data-ans="down"><label><input type="radio" name="p2" value="up">Up</label><label><input type="radio" name="p2" value="down">Down</label></span></div>
+          <div class="q q-line"><span class="qt">Clothing stores</span><span class="seg" data-ans="down"><label><input type="radio" name="p3" value="up">Up</label><label><input type="radio" name="p3" value="down">Down</label></span></div>
+          <div class="q q-line"><span class="qt">Online retailers</span><span class="seg" data-ans="up"><label><input type="radio" name="p4" value="up">Up</label><label><input type="radio" name="p4" value="down">Down</label></span></div>
+          <div class="q q-line"><span class="qt">Restaurants</span><span class="seg" data-ans="up"><label><input type="radio" name="p5" value="up">Up</label><label><input type="radio" name="p5" value="down">Down</label></span></div>
+          <div class="q q-line"><span class="qt">Sporting goods, books and hobby stores</span><span class="seg" data-ans="down"><label><input type="radio" name="p6" value="up">Up</label><label><input type="radio" name="p6" value="down">Down</label></span></div>
+        </div>
+        <div class="btn-row"><button class="btn do-check" type="button">Check after reading</button><span class="score"></span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="phase study">
+    <div class="phase-rail"><span>STUDY</span></div>
+    <div class="phase-body">
+
+      <div class="task" data-checkset>
+        <div class="task-h"><span class="num">3</span><h3>Vocabulary in context: the language of spending</h3><span class="mode">Individual → pairs</span><span class="time">15 min</span></div>
+        <p class="instr">Read each example from the report. Match the word or phrase to its meaning. You will use these words again in Lesson 2.</p>
+        <div class="vocab-list">
+          <div class="vocab-item"><b>tepid</b>
+            <select class="ans" data-ans="c" aria-label="tepid"><option value="">—</option><option value="a">a. a small increase</option><option value="b">b. to attract with an offer</option><option value="c">c. weak; not strong or exciting</option><option value="d">d. pressure on money or people</option><option value="e">e. to spend less; to reduce activity</option><option value="f">f. failure to pay on time</option><option value="g">g. to make a bad situation worse</option><option value="h">h. a view of one moment only</option><option value="i">i. a treat you buy, not a need</option><option value="j">j. to spread quickly to other areas</option></select>
+            <span class="ex">“October retail sales were tepid.”</span></div>
+          <div class="vocab-item"><b>pull back (on)</b>
+            <select class="ans" data-ans="e" aria-label="pull back"></select>
+            <span class="ex">Americans pulled back on purchases from cars to clothing.</span></div>
+          <div class="vocab-item"><b>a splurge</b>
+            <select class="ans" data-ans="i" aria-label="splurge"></select>
+            <span class="ex">Shoppers had focused on fun little splurges in the summer.</span></div>
+          <div class="vocab-item"><b>exacerbate</b>
+            <select class="ans" data-ans="g" aria-label="exacerbate"></select>
+            <span class="ex">AI investment has exacerbated inflation.</span></div>
+          <div class="vocab-item"><b>ricochet into</b>
+            <select class="ans" data-ans="j" aria-label="ricochet into"></select>
+            <span class="ex">Higher energy prices are ricocheting into airfares and shipping.</span></div>
+          <div class="vocab-item"><b>lure</b>
+            <select class="ans" data-ans="b" aria-label="lure"></select>
+            <span class="ex">Stores advertise deals to lure customers.</span></div>
+          <div class="vocab-item"><b>an uptick</b>
+            <select class="ans" data-ans="a" aria-label="uptick"></select>
+            <span class="ex">Grocery prices showed a painful uptick.</span></div>
+          <div class="vocab-item"><b>strain</b>
+            <select class="ans" data-ans="d" aria-label="strain"></select>
+            <span class="ex">Middle-class households are feeling the strain.</span></div>
+          <div class="vocab-item"><b>a snapshot</b>
+            <select class="ans" data-ans="h" aria-label="snapshot"></select>
+            <span class="ex">The data offers only a snapshot of consumer spending.</span></div>
+          <div class="vocab-item"><b>delinquency</b>
+            <select class="ans" data-ans="f" aria-label="delinquency"></select>
+            <span class="ex">Serious delinquency rates on credit cards held steady.</span></div>
+        </div>
+        <div class="btn-row"><button class="btn do-check" type="button">Check</button><span class="score"></span></div>
+      </div>
+
+      <div class="reading" id="read1">
+        <div class="src">
+          <span>Adapted for B2+ from: <a href="https://www.google.com/search?q=%22Spending+growth+slowed+at+retail+stores+in+October+as+high+prices+give+shoppers+pause%22" target="_blank" rel="noopener">“Spending growth slowed at retail stores in October as high prices give shoppers pause”</a> — The Associated Press, November 2026</span>
+          <span>Reading time ≈ 10 min</span>
+        </div>
+        <h4>Shoppers slow down before the holidays</h4>
+        <p><span class="pn">1</span>American shoppers increased their spending more slowly in October. According to the Commerce Department, retail sales rose just 0.2% that month, down from a 0.8% gain in September. With prices still high and the economy uncertain, many people pulled back on cars, clothes, furniture and even their hobbies just before the holiday shopping season.</p>
+        <p><span class="pn">2</span>Two sectors had a big effect on the total. Sales at gas stations rose 1.5% after jumping 30.3% in September; without gas stations, retail sales grew by only 0.1%. Sales at car and parts dealers fell 1.6%, reversing a 1.3% increase the month before. Without that sector, retail sales rose 0.6%.</p>
+        <p><span class="pn">3</span><span class="voice">Heather Long, chief economist at Navy Federal Credit Union,</span> argues that once higher prices are taken into account, consumer spending actually went down. The Consumer Price Index rose 0.4% in October, more than expected. In Long's view, “the cautious consumer is back”: budgets are tight, and middle- and moderate-income families are feeling the strain. She points out that falling gas prices in November could give households some much-needed cash, although a gallon of gas still costs nearly 20% more than a year ago.</p>
+        <p><span class="pn">4</span>Business fell at clothing stores, furniture stores and even in the sporting goods, music, book and hobby sector. Long notes that this sector had been strong in the spring and summer, when shoppers focused on small, fun splurges. Online retailers were a bright spot, rising 1.2% thanks partly to a two-day Amazon Prime Day event in early October. Restaurants, the only service category in the report, rose 0.2%. The so-called “control group,” which leaves out food services, cars, building materials and gas and is used to calculate economic growth, rose a solid 0.6%.</p>
+        <p><span class="pn">5</span>Prices remain the bigger story. Higher energy costs are spreading into airfares, public transportation and shipping, and grocery prices rose 0.4%, according to the Labor Department. The report also states that massive investment in artificial intelligence has made inflation worse by pushing up the price of computer chips, and therefore of laptops, phones and other electronics.</p>
+        <p><span class="pn">6</span>Retailers are now preparing for Thanksgiving weekend, the unofficial start of holiday shopping, with heavily advertised deals for customers who increasingly buy only when they believe prices have dropped. Target says it is offering more than 8,000 new holiday gifts, most of them $20 or less, and Kohl's has added more gift sets.</p>
+        <p><span class="pn">7</span>Many Americans continue to rely on credit cards, even though borrowing has become more expensive. <span class="voice">Charles Wise of the credit reporting agency TransUnion</span> notes that credit card balances reached $1.17 trillion, up 5.1% from a year earlier, but serious delinquency rates have held steady. In his view, this shows that consumers “remain disciplined borrowers heading into the holidays.”</p>
+        <p class="note">This is an original classroom adaptation, not the full article. Short quotations are marked and attributed.</p>
+      </div>
+
+      <div class="task" data-checkset>
+        <div class="task-h"><span class="num">4</span><h3>Read the numbers</h3><span class="mode">Individual</span><span class="time">10 min</span></div>
+        <p class="instr">Complete the data table from the reading (use a minus sign for a fall). Then go back to Task 2 and check your predictions.</p>
+        <div class="scroll-x"><table class="data">
+          <tr><th>Measure (October 2026)</th><th>Change</th><th>Measure</th><th>Change</th></tr>
+          <tr><td>Total retail sales</td><td><input type="number" step="0.1" data-ans="0.2" aria-label="Total retail sales"> %</td>
+              <td>Total retail sales in September</td><td><input type="number" step="0.1" data-ans="0.8" aria-label="September"> %</td></tr>
+          <tr><td>Retail sales without gas stations</td><td><input type="number" step="0.1" data-ans="0.1" aria-label="without gas"> %</td>
+              <td>Car and parts dealers</td><td><input type="number" step="0.1" data-ans="-1.6" aria-label="car dealers"> %</td></tr>
+          <tr><td>Online retailers</td><td><input type="number" step="0.1" data-ans="1.2" aria-label="online"> %</td>
+              <td>“Control group”</td><td><input type="number" step="0.1" data-ans="0.6" aria-label="control group"> %</td></tr>
+          <tr><td>Consumer Price Index</td><td><input type="number" step="0.1" data-ans="0.4" aria-label="CPI"> %</td>
+              <td>Credit card balances vs. a year ago</td><td><input type="number" step="0.1" data-ans="5.1" aria-label="credit card balances"> %</td></tr>
+        </table></div>
+        <div class="btn-row"><button class="btn do-check" type="button">Check</button><span class="score"></span></div>
+      </div>
+
+      <div class="task" data-checkset>
+        <div class="task-h"><span class="num">5</span><h3>Who said what?</h3><span class="mode">Individual → pairs</span><span class="time">10 min</span></div>
+        <p class="instr">Synthesis starts with knowing exactly where each idea comes from. Choose the source of each point.</p>
+        <div class="q q-line"><span class="q-n">1</span><span class="qt">Retail sales rose 0.2% in October.</span>
+          <select class="ans src-sel" data-ans="commerce" aria-label="Source 1"><option value="">Choose source…</option><option value="commerce">Commerce Department</option><option value="labor">Labor Department</option><option value="long">Heather Long (Navy Federal)</option><option value="wise">Charles Wise (TransUnion)</option><option value="reporter">The reporter (no named source)</option></select>
+          <p class="expl">Official data: “according to the Commerce Department's report.”</p></div>
+        <div class="q q-line"><span class="q-n">2</span><span class="qt">Budgets are tight for many households.</span><select class="ans src-sel" data-ans="long" aria-label="Source 2"></select>
+          <p class="expl">This is Long's interpretation of the data, not a number from the report.</p></div>
+        <div class="q q-line"><span class="q-n">3</span><span class="qt">Consumers remain disciplined borrowers.</span><select class="ans src-sel" data-ans="wise" aria-label="Source 3"></select>
+          <p class="expl">Wise draws this conclusion from TransUnion's credit data.</p></div>
+        <div class="q q-line"><span class="q-n">4</span><span class="qt">Grocery prices increased 0.4%.</span><select class="ans src-sel" data-ans="labor" aria-label="Source 4"></select>
+          <p class="expl">Prices data comes from the Labor Department.</p></div>
+        <div class="q q-line"><span class="q-n">5</span><span class="qt">Investment in AI has made inflation worse.</span><select class="ans src-sel" data-ans="reporter" aria-label="Source 5"></select>
+          <p class="expl">No expert or data source is named for this claim. In your writing, you would attribute it to “the AP report,” and a careful reader might ask: what is the evidence?</p></div>
+        <div class="q q-line"><span class="q-n">6</span><span class="qt">The hobby sector had been strong in spring and summer.</span><select class="ans src-sel" data-ans="long" aria-label="Source 6"></select>
+          <p class="expl">The article says “Long noted” this.</p></div>
+        <div class="btn-row"><button class="btn do-check" type="button">Check</button><span class="score"></span></div>
+      </div>
+
+      <div class="task" data-checkset>
+        <div class="task-h"><span class="num">6</span><h3>Main idea and meaning</h3><span class="mode">Individual</span><span class="time">5 min</span></div>
+        <div class="q mcq" data-ans="b"><p><span class="q-n">a</span>Which sentence best summarizes the whole report?</p>
+          <div class="opts">
+            <label><input type="radio" name="m1" value="a"><span>Americans stopped shopping in October because of high gas prices.</span></label>
+            <label><input type="radio" name="m1" value="b"><span>Spending grew only slightly in October as high prices made shoppers careful, although some areas, like online sales and credit use, stayed strong.</span></label>
+            <label><input type="radio" name="m1" value="c"><span>Retailers expect record sales over Thanksgiving weekend because consumers have more money.</span></label>
+          </div>
+          <p class="expl">(a) is false — sales still rose. (c) is not stated. (b) covers the main point and the exceptions.</p></div>
+        <div class="q mcq" data-ans="c"><p><span class="q-n">b</span>Long says that “adjusting for higher prices,” spending was negative. What does she mean?</p>
+          <div class="opts">
+            <label><input type="radio" name="m2" value="a"><span>Shoppers spent fewer dollars in October than in September.</span></label>
+            <label><input type="radio" name="m2" value="b"><span>The Commerce Department made a mistake in its report.</span></label>
+            <label><input type="radio" name="m2" value="c"><span>Sales rose 0.2% in dollars, but prices rose about 0.4%, so people probably bought fewer actual goods.</span></label>
+          </div>
+          <p class="expl">Sales figures are in dollars. If prices rise faster than sales, the amount of things people buy goes down — remember the Week 4 lesson on reading statistics carefully.</p></div>
+        <div class="btn-row"><button class="btn do-check" type="button">Check</button><span class="score"></span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="phase activate">
+    <div class="phase-rail"><span>ACTIVATE</span></div>
+    <div class="phase-body">
+
+      <div class="task">
+        <div class="task-h"><span class="num">7</span><h3>Same data, two headlines</h3><span class="mode">Pairs</span><span class="time">10 min</span></div>
+        <p class="instr">Remember Week 1: framing. Using only facts from the report, write two headlines — one that makes the economy sound worrying, and one that makes it sound healthy. Then compare with your partner: which facts did each of you emphasize or downplay?</p>
+        <div class="grid2">
+          <div><p><b>Worrying headline</b></p><input type="text" class="full"></div>
+          <div><p><b>Healthy headline</b></p><input type="text" class="full"></div>
+        </div>
+        <p>Which facts did you emphasize, and which did you leave out? Use <em>emphasize, downplay, frame as</em>.</p>
+        <textarea></textarea>
+        <div class="hybrid"><b>Hybrid</b><span>Each pair posts its two headlines in the class chat. The teacher reads two or three aloud and the class votes on the most convincing in each column.</span></div>
+      </div>
+
+      <div class="task">
+        <div class="task-h"><span class="num">8</span><h3>Strategy meeting: plan a store's holidays</h3><span class="mode">Groups of 3–4</span><span class="time">25 min</span></div>
+        <p class="instr">You advise <b>Northfield Home &amp; Gift</b>, a mid-sized (fictional) chain selling gifts, small electronics and home goods. Its October sales were flat. Using evidence from the report, choose and rank the three best strategies for the holidays. Each group presents its #1 choice in 60 seconds.</p>
+        <div class="options-list">
+          <div class="opt-card"><b>A · Doorbusters.</b> Big discounts only on Thanksgiving weekend.</div>
+          <div class="opt-card"><b>B · Small gifts.</b> A large range of gifts at $5–$20.</div>
+          <div class="opt-card"><b>C · Store credit card.</b> 10% off when customers open a card.</div>
+          <div class="opt-card"><b>D · Online push.</b> Spend more on online ads and offer free shipping.</div>
+          <div class="opt-card"><b>E · Electronics focus.</b> Put laptops and phones at the front of stores.</div>
+          <div class="opt-card"><b>F · Gift sets.</b> Bundle products into ready-made gift sets.</div>
+        </div>
+        <div class="rank-row"><span class="rk">1st choice</span>
+          <select class="ans" aria-label="First choice"><option value="">Choose…</option><option>A · Doorbusters</option><option>B · Small gifts</option><option>C · Store credit card</option><option>D · Online push</option><option>E · Electronics focus</option><option>F · Gift sets</option></select>
+          <textarea placeholder="Evidence from the report…"></textarea></div>
+        <div class="rank-row"><span class="rk">2nd choice</span><select class="ans strat-sel" aria-label="Second choice"></select><textarea placeholder="Evidence from the report…"></textarea></div>
+        <div class="rank-row"><span class="rk">3rd choice</span><select class="ans strat-sel" aria-label="Third choice"></select><textarea placeholder="Evidence from the report…"></textarea></div>
+        <p>Which option did your group reject most strongly, and why? Use at least two words from Task 3.</p>
+        <textarea></textarea>
+        <div class="hybrid"><b>Hybrid</b><span>Form mixed groups where possible: one online student per group joins on a laptop at the in-class table, or run all-online groups in breakout rooms. One person shares their screen with this worksheet so the whole group can see the ranking.</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="breakbar"><span>Break · 30 minutes</span></div>
+
+<!-- ======================= LESSON 2 ======================= -->
+<section id="lesson2" class="lesson-2">
+  <div class="lesson-head">
+    <h2><span class="lh-k">Lesson 2 · Topic 2</span>Holiday 2026: what shoppers are planning</h2>
+    <p class="lh-r">Source 2: a National Retail Federation survey report. Then you combine three voices — Long, Wise and the NRF — into one response.</p>
+  </div>
+
+  <div class="phase engage">
+    <div class="phase-rail"><span>ENGAGE</span></div>
+    <div class="phase-body">
+      <div class="task">
+        <div class="task-h"><span class="num">9</span><h3>Guess the survey numbers</h3><span class="mode">Individual → whole class</span><span class="time">10 min</span></div>
+        <p class="instr">Type your guess, then reveal the real figure from the NRF's October 2026 Holiday Consumer Survey. Which result surprised the class most?</p>
+        <div class="stat-cards">
+          <div class="stat" data-real="91" data-unit="%"><p>Consumers who plan to celebrate the winter holidays</p><span class="g"><input type="number" min="0" max="100" aria-label="Guess 1">%</span><button class="btn alt reveal-btn no-print" type="button">Reveal</button><span class="reveal"></span></div>
+          <div class="stat" data-real="64" data-unit="%"><p>Shoppers likely to wait until Thanksgiving weekend for most of their shopping</p><span class="g"><input type="number" min="0" max="100" aria-label="Guess 2">%</span><button class="btn alt reveal-btn no-print" type="button">Reveal</button><span class="reveal"></span></div>
+          <div class="stat" data-real="53" data-unit="%"><p>Holiday shoppers planning to buy online</p><span class="g"><input type="number" min="0" max="100" aria-label="Guess 3">%</span><button class="btn alt reveal-btn no-print" type="button">Reveal</button><span class="reveal"></span></div>
+          <div class="stat" data-real="27" data-unit="%"><p>Shoppers planning to give an experience as a gift</p><span class="g"><input type="number" min="0" max="100" aria-label="Guess 4">%</span><button class="btn alt reveal-btn no-print" type="button">Reveal</button><span class="reveal"></span></div>
+          <div class="stat" data-real="4.2" data-unit="%"><p>NRF forecast: growth in holiday sales over 2025</p><span class="g"><input type="number" min="0" max="100" step="0.1" aria-label="Guess 5">%</span><button class="btn alt reveal-btn no-print" type="button">Reveal</button><span class="reveal"></span></div>
+        </div>
+        <div class="grid2" style="margin-top:10px">
+          <div><p>Would you rather <b>give</b> a thing or an experience (a concert, a class, a trip)? Why?</p><textarea></textarea></div>
+          <div><p>Look back at Lesson 1. Does a 4.2% growth forecast fit the picture of a “cautious consumer”?</p><textarea></textarea></div>
+        </div>
+        <div class="hybrid"><b>Hybrid</b><span>Online students type their guesses in the chat before the reveal; in-class students hold up fingers or call out numbers. The teacher notes the closest guess from each group.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase study">
+    <div class="phase-rail"><span>STUDY</span></div>
+    <div class="phase-body">
+
+      <div class="task" data-checkset>
+        <div class="task-h"><span class="num">10</span><h3>Vocabulary: survey and trend language</h3><span class="mode">Individual</span><span class="time">10 min</span></div>
+        <p class="instr">Complete each sentence with a word from the bank. Two words (blue) are recycled from Lesson 1. Use each word once.</p>
+        <div class="bank"><span>resilient</span><span>forecast</span><span>fixture</span><span>waning</span><span>ambiance</span><span>experiential</span><span>navigate</span><span>cite</span><span class="rec">splurge</span><span class="rec">strain</span></div>
+        <div class="q q-line"><span class="q-n">1</span><span class="qt">Shoppers are still spending despite high prices; the NRF calls them ________.</span>
+          <select class="ans v2" data-ans="resilient" aria-label="Gap 1"><option value="">—</option><option>resilient</option><option>forecast</option><option>fixture</option><option>waning</option><option>ambiance</option><option>experiential</option><option>navigate</option><option>cite</option><option>splurge</option><option>strain</option></select></div>
+        <div class="q q-line"><span class="q-n">2</span><span class="qt">The NRF ________s that holiday sales will reach $1.013 trillion.</span><select class="ans v2" data-ans="forecast" aria-label="Gap 2"></select></div>
+        <div class="q q-line"><span class="q-n">3</span><span class="qt">Thanksgiving weekend has long been a ________ of the holiday season — it happens every year.</span><select class="ans v2" data-ans="fixture" aria-label="Gap 3"></select></div>
+        <div class="q q-line"><span class="q-n">4</span><span class="qt">Online shopping is still popular, but its popularity is slowly ________.</span><select class="ans v2" data-ans="waning" aria-label="Gap 4"></select></div>
+        <div class="q q-line"><span class="q-n">5</span><span class="qt">Some people shop in stores to enjoy the holiday ________: the lights, music and decorations.</span><select class="ans v2" data-ans="ambiance" aria-label="Gap 5"></select></div>
+        <div class="q q-line"><span class="q-n">6</span><span class="qt">Concert tickets and cooking classes are ________ gifts.</span><select class="ans v2" data-ans="experiential" aria-label="Gap 6"></select></div>
+        <div class="q q-line"><span class="q-n">7</span><span class="qt">Families must ________ economic pressures while keeping their traditions.</span><select class="ans v2" data-ans="navigate" aria-label="Gap 7"></select></div>
+        <div class="q q-line"><span class="q-n">8</span><span class="qt">Shoppers most often ________ sales and discounts as the reason they choose a store.</span><select class="ans v2" data-ans="cite" aria-label="Gap 8"></select></div>
+        <div class="q q-line"><span class="q-n">9</span><span class="qt">Even when money is tight, many people allow themselves one small holiday ________.</span><select class="ans v2" data-ans="splurge" aria-label="Gap 9"></select></div>
+        <div class="q q-line"><span class="q-n">10</span><span class="qt">Higher grocery and gas prices put a ________ on moderate-income budgets.</span><select class="ans v2" data-ans="strain" aria-label="Gap 10"></select></div>
+        <div class="btn-row"><button class="btn do-check" type="button">Check</button><span class="score"></span></div>
+      </div>
+
+      <div class="reading" id="read2">
+        <div class="src">
+          <span>Adapted for B2+ from: <a href="https://www.google.com/search?q=site%3Anrf.com+%222026+holiday+shopping+trends%3A+What+consumers+are+planning%22" target="_blank" rel="noopener">“2026 holiday shopping trends: What consumers are planning”</a> — Lea Grgich, National Retail Federation, October 28, 2026 · Survey press release: <a href="https://nrf.com/media-center/press-releases/affordability-shapes-winter-holiday-shopping-according-to-nrf-holiday-survey" target="_blank" rel="noopener">“Affordability shapes winter holiday shopping”</a></span>
+          <span>Reading time ≈ 8 min</span>
+        </div>
+        <h4>Deals, stores and experiences: holiday plans for 2026</h4>
+        <p><span class="pn">1</span>The <span class="voice">National Retail Federation (NRF)</span>'s October Holiday Consumer Survey, carried out by Prosper Insights &amp; Analytics, found that 91% of consumers plan to celebrate the winter holidays this year. The NRF <a href="https://nrf.com/media-center/press-releases/nrf-forecasts-2026-holiday-sales-growth-as-consumers-remain-resilient" target="_blank" rel="noopener">forecasts</a> that holiday retail sales will grow 4.2% over 2025, reaching $1.013 trillion. According to the report, consumers are dealing with economic pressure but are still prioritizing their loved ones and traditions.</p>
+        <p><span class="pn">2</span><b>Waiting for the deals.</b> Almost two-thirds of shoppers (64%) say they are likely to wait until Thanksgiving weekend to do most of their holiday shopping, compared with 51% five years ago. Sales and discounts (56%) are the factor shoppers mention most when choosing where to shop, followed by quality (51%), selection (46%) and free shipping or shipping deals (37%).</p>
+        <p><span class="pn">3</span><b>Online is cooling.</b> Online is still the most popular place for holiday shopping, but only 53% of shoppers plan to buy gifts and holiday items online — the lowest share since 2015. People who are avoiding online shopping say they want to see items before buying (38%), be more thoughtful by shopping in person (23%) and enjoy the holiday atmosphere in stores (22%). Even online shoppers expect to do a smaller part of their shopping online: 52% this year, compared with 56% last year.</p>
+        <p><span class="pn">4</span><b>Experiences reach a record.</b> More than a quarter of shoppers (27%) plan to give an experience as a gift, up from 19% five years ago. Millennials remain the generation most likely to give experiences (38%, the same as before), but Gen Z pushed the category to a new high: it was the only generation in which more people plan to buy experience gifts this year. On wish lists, Gen Z (51%) and Millennials (50%) most want clothing and accessories, while Gen X (46%) and Boomers (59%) most want gift cards.</p>
+        <p class="note">Original classroom adaptation of the NRF report. All figures are from the NRF survey.</p>
+      </div>
+
+      <div class="task" data-checkset>
+        <div class="task-h"><span class="num">11</span><h3>True, false or not given?</h3><span class="mode">Individual</span><span class="time">8 min</span></div>
+        <div class="q q-line"><span class="q-n">1</span><span class="qt">Fewer shoppers plan to wait for Thanksgiving weekend than five years ago.</span>
+          <span class="seg" data-ans="F"><label><input type="radio" name="tf1" value="T">True</label><label><input type="radio" name="tf1" value="F">False</label><label><input type="radio" name="tf1" value="NG">Not given</label></span>
+          <p class="expl">More, not fewer: 64% now vs 51% five years ago.</p></div>
+        <div class="q q-line"><span class="q-n">2</span><span class="qt">Free shipping is the top reason shoppers choose a retailer.</span>
+          <span class="seg" data-ans="F"><label><input type="radio" name="tf2" value="T">True</label><label><input type="radio" name="tf2" value="F">False</label><label><input type="radio" name="tf2" value="NG">Not given</label></span>
+          <p class="expl">Sales and discounts (56%) are first; free shipping is fourth (37%).</p></div>
+        <div class="q q-line"><span class="q-n">3</span><span class="qt">The share of shoppers planning to buy online is the lowest since 2015.</span>
+          <span class="seg" data-ans="T"><label><input type="radio" name="tf3" value="T">True</label><label><input type="radio" name="tf3" value="F">False</label><label><input type="radio" name="tf3" value="NG">Not given</label></span>
+          <p class="expl">Paragraph 3: 53%, the lowest share since 2015.</p></div>
+        <div class="q q-line"><span class="q-n">4</span><span class="qt">Gen Z will spend more money on gifts than Millennials.</span>
+          <span class="seg" data-ans="NG"><label><input type="radio" name="tf4" value="T">True</label><label><input type="radio" name="tf4" value="F">False</label><label><input type="radio" name="tf4" value="NG">Not given</label></span>
+          <p class="expl">The report gives no spending amounts by generation.</p></div>
+        <div class="q q-line"><span class="q-n">5</span><span class="qt">Millennials are less likely to give experience gifts than in the past.</span>
+          <span class="seg" data-ans="F"><label><input type="radio" name="tf5" value="T">True</label><label><input type="radio" name="tf5" value="F">False</label><label><input type="radio" name="tf5" value="NG">Not given</label></span>
+          <p class="expl">They are just as likely as before (38%).</p></div>
+        <div class="q q-line"><span class="q-n">6</span><span class="qt">The NRF's own staff interviewed the shoppers.</span>
+          <span class="seg" data-ans="F"><label><input type="radio" name="tf6" value="T">True</label><label><input type="radio" name="tf6" value="F">False</label><label><input type="radio" name="tf6" value="NG">Not given</label></span>
+          <p class="expl">The survey was conducted by Prosper Insights &amp; Analytics for the NRF.</p></div>
+        <div class="btn-row"><button class="btn do-check" type="button">Check</button><span class="score"></span></div>
+      </div>
+
+      <div class="task">
+        <div class="task-h"><span class="num">12</span><h3>Check the sources before you combine them</h3><span class="mode">Pairs</span><span class="time">7 min</span></div>
+        <p class="instr">Use the Week 1 credibility checklist. The NRF is the trade association for the US retail industry — it represents stores. Complete the table in brief notes.</p>
+        <div class="scroll-x"><table class="data">
+          <tr><th style="width:24%"></th><th>AP report (Lesson 1)</th><th>NRF report (Lesson 2)</th></tr>
+          <tr><td>Type of source and main evidence</td><td><textarea></textarea></td><td><textarea></textarea></td></tr>
+          <tr><td>Possible purpose</td><td><textarea></textarea></td><td><textarea></textarea></td></tr>
+          <tr><td>Key framing word(s) about shoppers</td><td><textarea placeholder="e.g. cautious…"></textarea></td><td><textarea placeholder="e.g. resilient…"></textarea></td></tr>
+          <tr><td>What might be left out?</td><td><textarea></textarea></td><td><textarea></textarea></td></tr>
+        </table></div>
+      </div>
+
+      <div class="task" data-checkset>
+        <div class="task-h"><span class="num">13</span><h3>Language focus: connecting sources</h3><span class="mode">Individual</span><span class="time">15 min</span></div>
+        <p class="instr">These phrases help you show how sources relate. Complete each sentence; each phrase is used once.</p>
+        <div class="phrase-box">
+          <div><b>Reporting one source</b>According to X, … / X points out that …</div>
+          <div><b>Showing agreement</b>Both X and Y … / X's findings are consistent with Y</div>
+          <div><b>Showing contrast</b>Whereas X argues …, Y … / X counters that … / X appears to contradict Y</div>
+        </div>
+        <div class="q q-line"><span class="q-n">1</span><span class="qt">________ Heather Long, October retail sales were “tepid.”</span>
+          <select class="ans ph" data-ans="According to" aria-label="Phrase 1"><option value="">—</option><option>According to</option><option>Whereas</option><option>counters that</option><option>Both</option><option>appears to contradict</option><option>is consistent with</option></select></div>
+        <div class="q q-line"><span class="q-n">2</span><span class="qt">________ Long describes a cautious consumer, Wise argues that shoppers remain disciplined borrowers.</span><select class="ans ph" data-ans="Whereas" aria-label="Phrase 2"></select></div>
+        <div class="q q-line"><span class="q-n">3</span><span class="qt">The NRF forecasts 4.2% sales growth; Long, however, ________ many households are feeling the strain.</span><select class="ans ph" data-ans="counters that" aria-label="Phrase 3"></select></div>
+        <div class="q q-line"><span class="q-n">4</span><span class="qt">________ the NRF and Long suggest that prices are shaping how people shop.</span><select class="ans ph" data-ans="Both" aria-label="Phrase 4"></select></div>
+        <div class="q q-line"><span class="q-n">5</span><span class="qt">The 1.2% rise in online sales in October ________ the NRF's finding that fewer people plan to shop online.</span><select class="ans ph" data-ans="appears to contradict" aria-label="Phrase 5"></select></div>
+        <div class="q q-line"><span class="q-n">6</span><span class="qt">TransUnion's data on stable delinquency rates ________ the NRF's picture of a resilient shopper.</span><select class="ans ph" data-ans="is consistent with" aria-label="Phrase 6"></select></div>
+        <div class="btn-row"><button class="btn do-check" type="button">Check</button><span class="score"></span></div>
+
+        <div style="margin-top:12px">
+          <p><b>Fix the copying.</b> This student sentence copies too much from the NRF report. Rewrite it in your own words with clear attribution.</p>
+          <p style="background:#fbe9e7;border-radius:6px;padding:6px 10px"><em>Consumers are navigating economic pressures but still making sure to prioritize their loved ones and traditions.</em></p>
+          <textarea placeholder="Your paraphrase…"></textarea>
+          <details class="model"><summary>Show a model answer</summary><div>The NRF reports that although many shoppers face financial pressure this year, they continue to put family and holiday customs first.</div></details>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="phase activate">
+    <div class="phase-rail"><span>ACTIVATE</span></div>
+    <div class="phase-body">
+
+      <div class="task" data-checkset>
+        <div class="task-h"><span class="num">14</span><h3>Map the three voices</h3><span class="mode">Groups of 3</span><span class="time">15 min</span></div>
+        <p class="instr">The question: <b>Heading into the 2026 holidays, is the American shopper struggling or resilient?</b> Each group member becomes the “expert” on one voice and fills in that column, then explains it to the group.</p>
+        <div class="scroll-x"><table class="data">
+          <tr><th style="width:18%"></th><th>A · Heather Long<br><span style="font-weight:400">economist, Navy Federal Credit Union (via AP)</span></th><th>B · Charles Wise<br><span style="font-weight:400">TransUnion, credit reporting (via AP)</span></th><th>C · NRF<br><span style="font-weight:400">retail trade association survey</span></th></tr>
+          <tr><td>Main claim (own words)</td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr>
+          <tr><td>Strongest evidence (a number)</td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr>
+          <tr><td>Struggling or resilient?</td><td><textarea></textarea></td><td><textarea></textarea></td><td><textarea></textarea></td></tr>
+        </table></div>
+        <p style="margin-top:12px"><b>Do they agree?</b> Decide how the sources relate on each point, then check.</p>
+        <div class="q q-line"><span class="q-n">1</span><span class="qt">Long and the NRF: shoppers are paying close attention to prices.</span>
+          <span class="seg" data-ans="agree"><label><input type="radio" name="ag1" value="agree">Agree</label><label><input type="radio" name="ag1" value="partly">Partly</label><label><input type="radio" name="ag1" value="disagree">Disagree</label></span>
+          <p class="expl">Long: budgets are tight. NRF: discounts are the top factor and 64% will wait for Thanksgiving deals. Same conclusion, different evidence.</p></div>
+        <div class="q q-line"><span class="q-n">2</span><span class="qt">Long and the NRF: holiday spending will be healthy.</span>
+          <span class="seg" data-ans="partly"><label><input type="radio" name="ag2" value="agree">Agree</label><label><input type="radio" name="ag2" value="partly">Partly</label><label><input type="radio" name="ag2" value="disagree">Disagree</label></span>
+          <p class="expl">The NRF forecasts 4.2% growth. Long stresses strain on middle-income families but also says cheaper gas could free up cash — so there is some overlap.</p></div>
+        <div class="q q-line"><span class="q-n">3</span><span class="qt">Wise and the NRF: consumers are coping well financially.</span>
+          <span class="seg" data-ans="agree"><label><input type="radio" name="ag3" value="agree">Agree</label><label><input type="radio" name="ag3" value="partly">Partly</label><label><input type="radio" name="ag3" value="disagree">Disagree</label></span>
+          <p class="expl">“Disciplined borrowers” and “resilient” shoppers point the same way.</p></div>
+        <div class="q q-line"><span class="q-n">4</span><span class="qt">AP data and the NRF: online shopping is growing.</span>
+          <span class="seg" data-ans="disagree"><label><input type="radio" name="ag4" value="agree">Agree</label><label><input type="radio" name="ag4" value="partly">Partly</label><label><input type="radio" name="ag4" value="disagree">Disagree</label></span>
+          <p class="expl">On the surface they disagree (online sales +1.2% vs online plans at their lowest since 2015). But they measure different things: one month's actual sales, boosted by Prime Day, vs shoppers' plans for the season. Good synthesis notices this.</p></div>
+        <div class="btn-row"><button class="btn do-check" type="button">Check</button><span class="score"></span></div>
+        <div class="hybrid"><b>Hybrid</b><span>Groups of three in breakout rooms or at tables. Assign roles A/B/C by the order of names. If a group is mixed, the online member takes role C and shares their screen while presenting it.</span></div>
+      </div>
+
+      <div class="task">
+        <div class="task-h"><span class="num">15</span><h3>Discuss: which voice convinces you?</h3><span class="mode">Same groups</span><span class="time">10 min</span></div>
+        <div class="grid3">
+          <div><p>Why might an economist, a credit agency and a retail association describe the same shoppers differently?</p><textarea></textarea></div>
+          <div><p>Which source do you find most convincing? What would make it stronger?</p><textarea></textarea></div>
+          <div><p>Revisit Task 8: does the NRF data change Northfield's strategy? What would you add or drop?</p><textarea></textarea></div>
+        </div>
+      </div>
+
+      <div class="task" id="write">
+        <div class="task-h"><span class="num">16</span><h3>Write a three-source synthesis paragraph</h3><span class="mode">Individual</span><span class="time">20 min</span></div>
+        <p class="instr">Answer the question <b>“Is the American shopper struggling or resilient heading into the holidays?”</b> in <b>150–180 words</b>. Cite all three voices (Long, Wise, the NRF), show at least one point of agreement and one of disagreement, and end with your own conclusion. Use your own words — the tracker warns you if you copy six or more words in a row from the readings.</p>
+        <textarea class="tall" id="synth" aria-label="Synthesis paragraph"></textarea>
+        <div class="tracker">
+          <div class="tr-cell" id="tr-words"><b id="wc">0</b>words · target 150–180</div>
+          <div class="tr-cell" id="tr-src"><b id="sc">0 / 3</b>sources cited<div class="tr-list" id="src-list"></div></div>
+          <div class="tr-cell" id="tr-phr"><b id="pc">0</b>synthesis phrases (aim for 3+)<div class="tr-list" id="phr-list"></div></div>
+          <div class="tr-cell" id="tr-voc"><b id="vc">0</b>vocabulary words (aim for 3+)<div class="tr-list" id="voc-list"></div></div>
+        </div>
+        <div class="copy-warn" id="copy-warn"></div>
+        <details class="model"><summary>Show a model opening (first two sentences only)</summary><div>According to the National Retail Federation, shoppers remain resilient, and the group forecasts that holiday sales will rise 4.2% this year. Whereas Navy Federal economist Heather Long describes a “cautious consumer” whose budget is under strain, TransUnion's Charles Wise points out that card users are still paying their bills on time…</div></details>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="community">
+  <div>
+    <h3>Community assignment · Article 8</h3>
+    <p>A4 (Article 7 debate) is due this week. A5 is assigned: read Article 8 on Approach's Community and begin its assignment, combining information from three sources and citing all three. Article 9 is added in Week 9; both are due in Week 10.</p>
+  </div>
+  <a class="tb-btn gold no-print" style="text-decoration:none" href="https://approachusa.mn.co/spaces/14080227/content" target="_blank" rel="noopener">Open Community</a>
+</div>
+
+<section class="sources">
+  <h4>Sources</h4>
+  <ul>
+    <li>The Associated Press. <a href="https://www.google.com/search?q=%22Spending+growth+slowed+at+retail+stores+in+October+as+high+prices+give+shoppers+pause%22" target="_blank" rel="noopener">“Spending growth slowed at retail stores in October as high prices give shoppers pause.”</a> November 2026.</li>
+    <li>Grgich, L. <a href="https://www.google.com/search?q=site%3Anrf.com+%222026+holiday+shopping+trends%3A+What+consumers+are+planning%22" target="_blank" rel="noopener">“2026 holiday shopping trends: What consumers are planning.”</a> National Retail Federation, October 28, 2026.</li>
+    <li>National Retail Federation. <a href="https://nrf.com/media-center/press-releases/affordability-shapes-winter-holiday-shopping-according-to-nrf-holiday-survey" target="_blank" rel="noopener">“Affordability shapes winter holiday shopping, according to NRF holiday survey.”</a> · <a href="https://nrf.com/media-center/press-releases/nrf-forecasts-2026-holiday-sales-growth-as-consumers-remain-resilient" target="_blank" rel="noopener">“NRF forecasts 2026 holiday sales growth as consumers remain resilient.”</a> · <a href="https://nrf.com/research-insights/holiday-data-and-trends/winter-holidays" target="_blank" rel="noopener">NRF Holiday Headquarters</a>.</li>
+  </ul>
+</section>
+
+</div>
+
+<script>
+(function(){
+const KEY='ci-bpaap-w8-v1';
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+
+/* fill empty selects with the option list of the previous select in the same task */
+let lastOpts=null;
+$$('select.ans').forEach(s=>{ if(s.options.length) lastOpts=s; else if(lastOpts) s.innerHTML=lastOpts.innerHTML; });
+
+/* ---------- persistence ---------- */
+const fields=$$('input,textarea,select').filter(e=>!e.hasAttribute('data-nosave') && e.type!=='radio');
+fields.forEach((e,i)=>{ e.dataset.k = e.id || ('f'+i); });
+const radioNames=[...new Set($$('input[type=radio]').map(r=>r.name))];
+function collect(){
+  const d={f:{},r:{},rev:[]};
+  fields.forEach(e=>{ if(e.value) d.f[e.dataset.k]=e.value; });
+  radioNames.forEach(n=>{ const c=$(`input[name="${n}"]:checked`); if(c) d.r[n]=c.value; });
+  $$('.stat').forEach((s,i)=>{ if(s.classList.contains('shown')) d.rev.push(i); });
+  return d;
+}
+function restore(){
+  let d; try{ d=JSON.parse(localStorage.getItem(KEY)||'null'); }catch(e){ d=null; }
+  if(!d) return;
+  fields.forEach(e=>{ if(d.f && d.f[e.dataset.k]!=null) e.value=d.f[e.dataset.k]; });
+  Object.entries(d.r||{}).forEach(([n,v])=>{ const r=$(`input[name="${n}"][value="${v}"]`); if(r) r.checked=true; });
+  (d.rev||[]).forEach(i=>{ const s=$$('.stat')[i]; if(s) reveal(s); });
+}
+let tSave; const note=$('#save-note');
+function save(){
+  clearTimeout(tSave);
+  tSave=setTimeout(()=>{ try{ localStorage.setItem(KEY,JSON.stringify(collect())); note.textContent='Saved ✓'; }catch(e){ note.textContent='Not saved'; } },400);
+}
+document.addEventListener('input',e=>{ if(!e.target.hasAttribute('data-nosave')) save(); });
+document.addEventListener('change',e=>{ if(!e.target.hasAttribute('data-nosave')) save(); });
+
+/* ---------- self-check ---------- */
+function mark(el,good){ el.classList.remove('ok','bad'); el.classList.add(good?'ok':'bad'); }
+$$('[data-checkset]').forEach(set=>{
+  const btn=$('.do-check',set), out=$('.score',set); if(!btn) return;
+  btn.addEventListener('click',()=>{
+    let n=0,ok=0;
+    $$('select.ans[data-ans]',set).forEach(s=>{ n++; const g=s.value===s.dataset.ans; if(g) ok++; mark(s,g); });
+    $$('input[type=number][data-ans]',set).forEach(i=>{ n++; const g=i.value!=='' && Math.abs(parseFloat(i.value)-parseFloat(i.dataset.ans))<0.051; if(g) ok++; mark(i,g); });
+    $$('.seg[data-ans]',set).forEach(sg=>{ n++; const c=$('input:checked',sg); const g=!!c && c.value===sg.dataset.ans; if(g) ok++; mark(sg,g); });
+    $$('.mcq[data-ans]',set).forEach(q=>{ n++; const c=$('input:checked',q); const g=!!c && c.value===q.dataset.ans; if(g) ok++;
+      $$('label',q).forEach(l=>l.classList.remove('ok','bad'));
+      $$('label',q).forEach(l=>{ const v=$('input',l).value; if(v===q.dataset.ans) l.classList.add('ok'); else if(c && v===c.value) l.classList.add('bad'); }); });
+    $$('.q',set).forEach(q=>q.classList.add('checked'));
+    out.textContent=`${ok} / ${n} correct`;
+  });
+});
+
+/* ---------- stat reveal ---------- */
+function reveal(s){
+  const real=parseFloat(s.dataset.real), g=$('input',s).value;
+  let t=real+s.dataset.unit;
+  if(g!==''){ const diff=Math.abs(real-parseFloat(g)); t+=` <small>(${diff<0.05?'exact!':'off by '+(Math.round(diff*10)/10)})</small>`; }
+  $('.reveal',s).innerHTML=t; s.classList.add('shown');
+}
+$$('.reveal-btn').forEach(b=>b.addEventListener('click',()=>{ reveal(b.closest('.stat')); save(); }));
+
+/* ---------- timer ---------- */
+let left=600, run=null;
+const disp=$('#t-disp'), minIn=$('#t-min'), startB=$('#t-start');
+const fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+function setFromInput(){ left=Math.max(1,Math.min(120,parseInt(minIn.value)||10))*60; disp.textContent=fmt(left); $('#timer').classList.remove('done'); }
+minIn.addEventListener('change',()=>{ if(!run) setFromInput(); });
+startB.addEventListener('click',()=>{
+  if(run){ clearInterval(run); run=null; startB.textContent='Start'; return; }
+  if(left<=0) setFromInput();
+  startB.textContent='Pause';
+  run=setInterval(()=>{ left--; disp.textContent=fmt(Math.max(left,0)); if(left<=0){ clearInterval(run); run=null; startB.textContent='Start'; $('#timer').classList.add('done'); disp.textContent="Time's up"; } },1000);
+});
+$('#t-reset').addEventListener('click',()=>{ clearInterval(run); run=null; startB.textContent='Start'; setFromInput(); });
+
+/* ---------- textarea sizing & print ---------- */
+function fit(t){ t.style.height='auto'; t.style.height=(t.scrollHeight+2)+'px'; }
+document.addEventListener('input',e=>{ if(e.target.tagName==='TEXTAREA') fit(e.target); });
+function beforePrint(){ $$('textarea').forEach(t=>{ if(t.value) fit(t); else t.style.height=''; }); }
+window.addEventListener('beforeprint',beforePrint);
+$('#btn-print').addEventListener('click',()=>{ beforePrint(); window.print(); });
+$('#btn-clear').addEventListener('click',()=>{
+  if(!confirm('Clear all your answers on this worksheet? This cannot be undone.')) return;
+  try{ localStorage.removeItem(KEY); }catch(e){}
+  location.reload();
+});
+
+/* ---------- synthesis tracker ---------- */
+const SRC=[['Long',/\b(heather\s+)?long\b|navy federal/i],['Wise',/\bwise\b|transunion/i],['NRF',/\bnrf\b|national retail federation/i]];
+const PHR=['according to','whereas','counters that','points out','both','consistent with','contradict','however','similarly','in contrast','argues','notes that'];
+const VOC=['tepid','pull back','pulled back','splurge','exacerbate','ricochet','lure','uptick','strain','snapshot','delinquency','resilient','forecast','fixture','waning','wane','ambiance','experiential','navigate','cite'];
+const norm=s=>s.toLowerCase().replace(/[“”"’'.,;:!?()%$—–-]/g,' ').split(/\s+/).filter(Boolean);
+const srcWords=norm(($('#read1').innerText||'')+' '+($('#read2').innerText||''));
+const grams=new Set(); for(let i=0;i+6<=srcWords.length;i++) grams.add(srcWords.slice(i,i+6).join(' '));
+const ta=$('#synth');
+function chips(list,on){ return list.map(x=>`<span class="${on.includes(x)?'on':''}">${x}</span>`).join(''); }
+function track(){
+  const v=ta.value, low=v.toLowerCase(), w=v.trim()?v.trim().split(/\s+/).length:0;
+  $('#wc').textContent=w; $('#tr-words').classList.toggle('met',w>=150&&w<=180);
+  const srcOn=SRC.filter(([,r])=>r.test(v)).map(([n])=>n);
+  $('#sc').textContent=srcOn.length+' / 3'; $('#src-list').innerHTML=chips(SRC.map(s=>s[0]),srcOn); $('#tr-src').classList.toggle('met',srcOn.length===3);
+  const phOn=PHR.filter(p=>new RegExp('\\b'+p+'\\b').test(low));
+  $('#pc').textContent=phOn.length; $('#phr-list').innerHTML=chips(phOn.length?phOn:['—'],phOn); $('#tr-phr').classList.toggle('met',phOn.length>=3);
+  const vOn=[...new Set(VOC.filter(p=>new RegExp('\\b'+p).test(low)))];
+  $('#vc').textContent=vOn.length; $('#voc-list').innerHTML=chips(vOn.length?vOn:['—'],vOn); $('#tr-voc').classList.toggle('met',vOn.length>=3);
+  const sw=norm(v), hits=[];
+  for(let i=0;i+6<=sw.length;i++){ const g=sw.slice(i,i+6).join(' '); if(grams.has(g)) hits.push(g); }
+  const cw=$('#copy-warn');
+  if(hits.length){ cw.innerHTML='<b>Possible copying:</b> “'+hits[0]+'…” matches the reading. Rephrase it in your own words, or use quotation marks and attribution.'; cw.classList.add('show'); }
+  else cw.classList.remove('show');
+}
+ta.addEventListener('input',track);
+
+/* ---------- init ---------- */
+restore();
+$$('textarea').forEach(t=>{ if(t.value) fit(t); });
+track();
+note.textContent='Autosave on';
+})();
+
+</script>
+</body>
+</html>
